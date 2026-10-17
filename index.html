@@ -1,0 +1,1196 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rumah HIJO Standar PPI</title>
+<meta name="description" content="Aplikasi narasumber Rumah HIJO HIPPII DIY: standar PPI STARKES, elemen penilaian, tips telusur, dan contoh dokumen.">
+<meta name="theme-color" content="#FFB547">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rumah HIJO">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: hero pastel bergelembung warna dengan mozaik 13 fokus berwarna → pita narasumber → filter chip + kartu standar bergambar mini → laci detail (contoh dokumen paling atas) → meja baca dokumen */
+:root{
+  --bg:#FFF8EE; --surface:#FFFFFF; --surface-2:#FFF0DC; --ink:#1D1B3F; --ink-2:#5F5A7E; --line:#F1E3CF;
+  --brand:#FF5A4E; --sun:#FFB020; --hijo:#16A866; --night:#FFF4E6; --night-2:#FFFFFF; --desk:#E8EDF8; --onnight:#1D1B3F; --onnight-2:#6B6589;
+  --shadow:0 1px 2px rgba(60,40,20,.05),0 10px 28px rgba(120,80,30,.10);
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.05}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+/* HERO */
+.hero{background:var(--night);color:var(--onnight);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:44px 40px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--onnight-2)}
+.eyebrow b{color:var(--sun);font-weight:700}
+.logo{display:inline-flex;align-items:center;border:0;background:none;padding:0;margin:0 0 14px;cursor:pointer;color:inherit;font:inherit;position:relative;border-radius:14px}
+.logo img{display:block;max-height:92px;max-width:min(260px,70vw);width:auto;height:auto;object-fit:contain;border-radius:10px}
+.logo .lph{display:inline-flex;align-items:center;gap:6px;border:2px dashed currentColor;opacity:.55;border-radius:14px;padding:12px 16px;font-size:13px;font-weight:600}
+.logo:hover .lph{opacity:.85}
+.logo.has .lph{display:none}
+.logo.has:hover::after{content:"📷";position:absolute;right:-8px;bottom:-8px;width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.plogo{height:26px;width:auto;vertical-align:middle;margin-right:8px;border-radius:4px}
+.title{font-size:clamp(56px,10vw,128px);font-weight:900;font-stretch:125%;letter-spacing:-.02em;margin-top:12px;line-height:.92}
+.title .r{display:block}
+.title .h{display:inline-flex;gap:.02em}
+.title .h span{display:inline-block}
+.sub{font-family:var(--f-display);font-stretch:110%;font-weight:600;font-size:clamp(18px,2.3vw,24px);margin-top:12px;color:var(--onnight)}
+.sub i{font-style:normal;color:var(--hijo)}
+.topic{margin-top:22px;display:inline-flex;flex-direction:column;gap:2px;padding:12px 16px;border-radius:14px;background:var(--night-2);border:1px solid rgba(255,255,255,.08);max-width:100%}
+.topic small{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--sun)}
+.topic b{font-family:var(--f-display);font-stretch:105%;font-size:clamp(17px,2vw,22px);font-weight:800}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.fact{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.07);font-size:14px;color:var(--onnight)}
+.fact svg{width:16px;height:16px;flex:none;color:var(--sun)}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tile{aspect-ratio:1;max-width:100%;border:0;border-radius:16px;padding:10px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:hidden}
+.tile:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.tile .L{font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:clamp(22px,3.2vw,38px);line-height:1}
+.tile .T{font-size:clamp(10px,1.05vw,12px);font-weight:700;line-height:1.15}
+.tile.info{background:var(--night-2);color:var(--onnight);cursor:default}
+.tile.info:hover{transform:none;box-shadow:none}
+.tile.info .L{color:var(--sun)}
+
+/* PEOPLE BAND */
+.band{background:var(--night-2);color:var(--onnight)}
+.band .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.25fr);gap:14px;padding-block:18px}
+.person{display:flex;gap:12px;align-items:center;min-width:0}
+.av{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:17px;color:#fff}
+.person b{display:block;font-size:14px;line-height:1.25}
+button.av{position:relative;border:0;padding:0;cursor:pointer;overflow:visible;width:52px;height:52px;border-radius:50%;font-size:18px}
+button.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;border:2px solid #fff}
+button.av .cam{position:absolute;right:-4px;bottom:-4px;width:22px;height:22px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:11px;box-shadow:0 2px 6px rgba(0,0,0,.25);opacity:.92}
+button.av:hover .cam,button.av:focus-visible .cam{opacity:1;transform:scale(1.1)}
+.fmenu{position:fixed;z-index:80;background:var(--surface,#fff);color:var(--ink,#111);border:1px solid var(--line,#ddd);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.18);padding:6px;display:grid;min-width:190px}
+.fmenu button{all:unset;cursor:pointer;padding:9px 12px;border-radius:8px;font-size:14px}
+.fmenu button:hover{background:rgba(0,0,0,.06)}
+.fmenu small{display:block;padding:4px 12px 6px;font-size:11.5px;opacity:.7;max-width:220px}
+.person span{display:block;font-size:12px;color:var(--onnight-2);line-height:1.3}
+.sesi{display:flex;flex-direction:column;gap:6px;min-width:0}
+.sesi .lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--sun);text-transform:uppercase}
+.sesi .row{display:flex;flex-wrap:wrap;gap:6px}
+.sbtn{border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--onnight);border-radius:999px;padding:5px 11px;font-size:12.5px;font-weight:600;transition:background .15s}
+.sbtn b{color:var(--sun);font-family:var(--f-mono);margin-right:4px}
+.sbtn:hover,.sbtn[aria-pressed="true"]{background:var(--sun);border-color:var(--sun);color:#1a1300}
+.sbtn[aria-pressed="true"] b,.sbtn:hover b{color:#1a1300}
+
+/* TOOLBAR */
+.tools{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;flex-direction:column;gap:10px;padding-block:12px}
+.trow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 12px;min-width:0}
+.search svg{width:18px;height:18px;color:var(--ink-2);flex:none}
+.search input{border:0;background:transparent;font:inherit;color:var(--ink);outline:none;width:100%;min-width:0}
+.stat{font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.stat b{color:var(--ink);font-family:var(--f-display);font-weight:800;font-size:17px;margin-right:3px}
+.zip{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--ink);color:var(--bg);border-radius:10px;padding:8px 14px;font-weight:700;font-size:13.5px}
+.gdrive{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:7px 12px;font-weight:600;font-size:13.5px;text-decoration:none}
+ .inst{background:#4F6BFF;color:#fff}
+.off{font-size:12.5px;font-weight:700;color:var(--ink-2);white-space:nowrap}
+.off.ok{color:#14915a}
+.help{position:fixed;inset:0;z-index:95;background:rgba(8,10,28,.6);display:grid;place-items:center;padding:16px}
+.help .box{background:var(--surface);color:var(--ink);border-radius:18px;padding:22px;max-width:440px;width:100%;box-shadow:var(--shadow)}
+.help h3{font-size:22px;font-weight:900;margin-bottom:10px}
+.help ol{margin:0 0 14px;padding-left:20px;line-height:1.7}
+.help button{border:0;background:var(--ink);color:var(--bg);border-radius:10px;padding:9px 16px;font-weight:700}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.chip{flex:none;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 11px 5px 5px;font-size:13px;font-weight:600;white-space:nowrap}
+.chip i{font-style:normal;width:22px;height:22px;border-radius:999px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:12px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.all{padding-left:11px}
+
+/* CARDS */
+.listhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-block:22px 12px}
+.listhead h2{font-size:clamp(24px,3vw,32px);font-weight:900;font-stretch:115%}
+.listhead p{margin:0;color:var(--ink-2);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;padding-bottom:30px}
+.card{position:relative;display:flex;flex-direction:column;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);transition:transform .16s ease,border-color .16s ease}
+.card:hover{transform:translateY(-2px);border-color:var(--gc)}
+.chead{display:flex;gap:12px;align-items:flex-start}
+.blk{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:22px}
+.ctxt{min-width:0}
+.code{font-family:var(--f-mono);font-weight:700;font-size:12.5px;color:var(--ink-2)}
+.ctxt b{display:block;font-size:16px;line-height:1.3;margin-top:2px}
+.stack{display:flex;align-items:flex-end;gap:10px;margin-top:auto}
+.thumbs{display:flex;padding-left:6px}
+.thumbs img{width:46px;height:62px;object-fit:cover;object-position:top;border-radius:4px;border:2px solid var(--surface);margin-left:-8px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.badge{font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
+.badge.none{color:var(--ink-2);font-weight:600}
+.ep{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2);margin-left:auto}
+.empty{padding:28px;text-align:center;color:var(--ink-2);border:1px dashed var(--line);border-radius:14px;grid-column:1/-1}
+
+/* DRAWER */
+.scrim{position:fixed;inset:0;background:rgba(8,10,28,.55);z-index:40}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(860px,100%);background:var(--bg);z-index:41;display:flex;flex-direction:column;box-shadow:-16px 0 50px rgba(0,0,0,.3);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.dtop{background:var(--gc);color:var(--gt);padding:14px 18px 18px}
+.dnav{display:flex;align-items:center;gap:8px}
+.dnav .sp{flex:1}
+.ib{border:0;background:rgba(0,0,0,.16);color:inherit;border-radius:10px;padding:7px 11px;font-size:14px;font-weight:700}
+.ib:hover{background:rgba(0,0,0,.28)}
+.ib:disabled{opacity:.4;cursor:default}
+.dcode{font-family:var(--f-mono);font-weight:700;font-size:13px;opacity:.85}
+.dtop h2{font-size:clamp(24px,3.4vw,34px);font-weight:900;font-stretch:112%;margin-top:10px}
+.dtop .grp{font-size:13px;font-weight:700;opacity:.85;margin-top:4px}
+.dbody{overflow:auto;padding:18px 20px 44px}
+.sec{margin-top:24px}
+.sec:first-child{margin-top:0}
+.sec h3{font-size:18px;font-weight:800;font-stretch:108%;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sec h3 .n{font-family:var(--f-mono);font-size:12px;font-weight:700;background:var(--surface-2);border-radius:999px;padding:2px 8px}
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.doc{display:flex;flex-direction:column;gap:8px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:8px;transition:transform .15s,border-color .15s}
+.doc:hover{transform:translateY(-2px);border-color:var(--gc)}
+.doc .pv{position:relative;aspect-ratio:3/4;max-width:100%;border-radius:8px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.doc .pv img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.doc .ft{position:absolute;left:6px;bottom:6px;font-family:var(--f-mono);font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px;color:#fff}
+.doc .ft.docx{background:#2B5CD8}.doc .ft.xlsx{background:#1D7A46}
+.doc .pg{position:absolute;right:6px;bottom:6px;font-size:10.5px;font-weight:700;padding:2px 6px;border-radius:5px;background:rgba(21,25,53,.75);color:#fff}
+.doc b{font-size:13px;line-height:1.3}
+.doc small{font-family:var(--f-mono);font-size:11px;color:var(--ink-2)}
+.noDocs{padding:16px;border:1px dashed var(--line);border-radius:14px;color:var(--ink-2);font-size:14px}
+.statement{font-size:16.5px;line-height:1.55;padding:14px 16px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.statement b{color:var(--gc2)}
+.dbody p{margin:0;max-width:70ch}
+.eps{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.eps li{display:grid;grid-template-columns:30px 1fr;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.eps .k{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:13px}
+.ev{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.ev i{font-style:normal;font-family:var(--f-mono);font-size:10.5px;padding:1px 6px;border-radius:5px;border:1px solid var(--line);color:var(--ink-2)}
+.ev i.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.ev i.sk{margin-left:auto;border-style:dashed}
+.kb{font-size:12.5px;color:var(--ink-2);margin-top:5px;line-height:1.45}
+.kb b{color:var(--ink);font-weight:600}
+.legend{font-size:12.5px;color:var(--ink-2);margin-top:8px}
+.bukti{display:flex;flex-wrap:wrap;gap:6px}
+.bukti span{font-size:13px;padding:5px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.tip{display:flex;gap:12px;padding:14px;border-radius:14px;background:color-mix(in srgb,var(--sun) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--sun) 45%,var(--line))}
+.tip svg{flex:none;width:22px;height:22px;color:#B97A00}
+.own{border:1px dashed var(--line);border-radius:14px;padding:12px}
+.own .top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.up{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:10px;padding:6px 12px;font-weight:700;font-size:13.5px;cursor:pointer}
+.up input{position:absolute;opacity:0;width:1px;height:1px}
+.own ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:6px}
+.own li{display:flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 8px}
+.own li .open{flex:1;min-width:0;text-align:left;border:0;background:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.own li .del{border:0;background:none;color:var(--brand);font-size:13px;font-weight:700}
+.own small{display:block;color:var(--ink-2);margin-top:6px;font-size:12.5px}
+
+/* VIEWER */
+.viewer{position:fixed;inset:0;z-index:90;background:var(--desk);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.vbar{display:flex;align-items:center;gap:8px;padding:10px max(14px,env(safe-area-inset-right,0px)) 10px max(14px,env(safe-area-inset-left,0px));color:#fff;border-bottom:1px solid rgba(255,255,255,.08);flex-wrap:wrap}
+.vbar .vt{flex:1 1 200px;min-width:0}
+.vbar .vt b{display:block;font-family:var(--f-display);font-weight:800;font-stretch:105%;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vbar .vt small{font-family:var(--f-mono);font-size:11.5px;color:#A9AED6}
+.vbtn{border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;border-radius:10px;padding:7px 12px;font-weight:700;font-size:13.5px}
+.vbtn:disabled{opacity:.35;cursor:default}
+.vbtn.dl{background:var(--sun);border-color:var(--sun);color:#1a1300}
+.vmsg{font-size:12.5px;color:#cfd3f5;width:100%}
+.vmsg:empty{display:none}
+.vscroll{flex:1;overflow:auto;padding:16px 12px 48px;position:relative}
+.vscroll.grab{cursor:grab}.vscroll.grabbing{cursor:grabbing;user-select:none}
+.pages{display:flex;flex-direction:column;align-items:center;gap:16px;width:max-content;min-width:100%;margin:0 auto}
+.page{width:var(--pw,min(900px,100%));max-width:none;height:auto;display:block;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,.5);border-radius:2px}
+.zoom{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.08);border-radius:10px;padding:3px}
+.zoom .vbtn{border:0;padding:5px 10px;min-width:34px}
+.zoom .vbtn:hover{background:rgba(255,255,255,.12)}
+.zoom .zl{font-family:var(--f-mono);font-size:12px;color:#fff;min-width:46px;text-align:center}
+.zoom .vbtn.on{background:rgba(255,176,32,.25);color:#FFD27A}
+.vhint{position:absolute;right:16px;bottom:14px;font-size:11.5px;color:#A9AED6;background:rgba(12,14,33,.8);padding:4px 8px;border-radius:6px;pointer-events:none}
+.present-btn{background:var(--brand);color:#fff}
+
+/* PRESENTATION */
+.pres{position:fixed;inset:0;z-index:70;background:var(--night);color:var(--onnight);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.ptop{display:flex;flex-wrap:wrap;align-items:center;gap:10px;min-width:0;padding:12px max(18px,env(safe-area-inset-right,0px)) 12px max(18px,env(safe-area-inset-left,0px))}
+.ptop .brand{font-family:var(--f-display);font-weight:900;font-stretch:120%;font-size:15px;letter-spacing:.02em}
+.ptop .brand i{font-style:normal;color:var(--sun)}
+.ptop .sp{flex:1}
+.pbtn{border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;border-radius:10px;padding:7px 12px;font-weight:700;font-size:13.5px}
+.pbtn:hover{background:rgba(255,255,255,.1)}
+.pbtn:disabled{opacity:.35;cursor:default}
+.pmain{overflow:auto;padding:1vh max(18px,env(safe-area-inset-right,0px)) 2vh max(18px,env(safe-area-inset-left,0px))}
+.slide{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:3vw;align-items:start}
+.sl-left{min-width:0}
+.sl-tag{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-mono);font-weight:700;font-size:clamp(14px,1.4vw,20px);color:var(--onnight-2)}
+.sl-tag .blk{width:clamp(40px,4vw,60px);height:clamp(40px,4vw,60px);font-size:clamp(20px,2.2vw,32px);border-radius:14px}
+.sl-title{font-family:var(--f-display);font-weight:900;font-stretch:115%;font-size:clamp(32px,4.4vw,68px);line-height:1.02;margin:1.4vh 0 2vh;text-wrap:balance}
+.sl-std{font-size:clamp(17px,1.6vw,26px);line-height:1.45;color:var(--onnight);border-left:5px solid var(--gc);padding-left:16px;max-width:60ch}
+.sl-eps{list-style:none;padding:0;margin:2.6vh 0 0;display:grid;gap:1.1vh}
+.sl-eps li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;font-size:clamp(15px,1.3vw,21px);line-height:1.38}
+.sl-eps .k{width:clamp(28px,2.2vw,36px);height:clamp(28px,2.2vw,36px);border-radius:9px;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:.85em}
+.sl-right{min-width:0;display:flex;flex-direction:column;gap:2vh}
+.sl-h{font-family:var(--f-mono);font-size:clamp(12px,1vw,15px);letter-spacing:.12em;text-transform:uppercase;color:var(--sun)}
+.sl-docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(120px,10vw,170px),1fr));gap:12px}
+.sl-doc{border:0;background:var(--night-2);border-radius:14px;padding:8px;text-align:left;color:var(--onnight);display:flex;flex-direction:column;gap:6px;transition:transform .15s}
+.sl-doc:hover,.sl-doc:focus-visible{transform:translateY(-3px)}
+.sl-doc .pv{aspect-ratio:3/4;max-width:100%;background:#fff;border-radius:8px;overflow:hidden}
+.sl-doc img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.sl-doc b{font-size:clamp(12px,.95vw,14.5px);line-height:1.25}
+.sl-doc small{font-family:var(--f-mono);font-size:11px;color:var(--onnight-2)}
+.sl-none{padding:16px;border:1px dashed rgba(255,255,255,.2);border-radius:14px;color:var(--onnight-2)}
+.sl-tip{background:var(--night-2);border-radius:14px;padding:14px 16px;font-size:clamp(14px,1.15vw,18px);line-height:1.45}
+.sl-tip b{color:var(--sun)}
+.pbot{display:flex;align-items:center;gap:12px;min-width:0;padding:10px max(18px,env(safe-area-inset-right,0px)) 12px max(18px,env(safe-area-inset-left,0px))}
+.dots{flex:1;display:flex;gap:4px;min-width:0;overflow:hidden}
+.dots button{flex:1;min-width:6px;height:8px;border:0;border-radius:4px;background:rgba(255,255,255,.15);padding:0}
+.dots button.on{background:var(--sun)}
+.dots button.done{background:rgba(255,255,255,.4)}
+.pcount{font-family:var(--f-mono);font-weight:700;font-size:14px;white-space:nowrap}
+.pkeys{font-size:12px;color:var(--onnight-2);white-space:nowrap}
+@media (max-width:900px){.slide{grid-template-columns:minmax(0,1fr)}.pkeys{display:none}}
+@media (max-width:560px){.lw{display:none}.ptop .brand{display:none}.pbot{gap:8px}.pbtn{padding:7px 10px}.zoom .zl{min-width:38px}.zoom #zfitw,.zoom #zfitp{font-size:12px;padding:5px 7px}}
+.vnote{color:#A9AED6;font-size:12.5px;text-align:center;max-width:70ch}
+.vimg{display:block;margin:0 auto;max-width:min(1000px,100%);background:#fff}
+.vframe{width:min(1000px,100%);height:calc(100vh - 130px);border:0;background:#fff;display:block;margin:0 auto}
+
+footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--ink-2);font-size:13.5px}
+footer p{margin:0 0 6px;max-width:85ch}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:26px;padding-block:32px}
+  .band .wrap{grid-template-columns:1fr 1fr}
+  .sesi{grid-column:1/-1}
+}
+@media (max-width:520px){
+  .band .wrap{grid-template-columns:1fr}
+  .mosaic{gap:6px}
+  .tile{border-radius:12px;padding:7px}
+  .docs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== TEMA TERANG & CERIA ===== */
+.hero{background:
+  radial-gradient(circle at 6% 12%,#FFC9DA 0 12%,transparent 34%),
+  radial-gradient(circle at 96% 8%,#BDEBFF 0 14%,transparent 40%),
+  radial-gradient(circle at 72% 100%,#CDF5C4 0 12%,transparent 38%),
+  radial-gradient(circle at 34% 108%,#FFE69A 0 12%,transparent 36%),
+  radial-gradient(circle at 52% 40%,#EBDDFF 0 6%,transparent 26%),
+  #FFF4E6;color:var(--ink)}
+.eyebrow{color:var(--ink-2)}.eyebrow b{color:var(--brand)}
+.sub{color:var(--ink)}
+.topic{background:#FFFFFF;border:0;box-shadow:var(--shadow)}
+.topic small{color:var(--brand)}
+.fact{background:rgba(255,255,255,.85);color:var(--ink);box-shadow:0 2px 8px rgba(120,80,30,.08)}
+.fact svg{color:var(--brand)}
+.tile{box-shadow:0 6px 16px rgba(120,80,30,.14)}
+.tile:hover{box-shadow:0 14px 28px rgba(120,80,30,.24)}
+.tile.info{background:#FFFFFF;color:var(--ink);box-shadow:0 6px 16px rgba(120,80,30,.10)}
+.tile.info .L{color:var(--brand)}
+.band{background:linear-gradient(100deg,#FFD84D 0%,#FFB547 55%,#FF9E6B 100%);color:#2A1A00}
+.person span{color:#5C3F00}
+.av{box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.sesi .lbl{color:#7A3E00}
+.sbtn{background:rgba(255,255,255,.55);border-color:rgba(42,26,0,.15);color:#2A1A00}
+.sbtn b{color:var(--brand)}
+.sbtn:hover,.sbtn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.sbtn[aria-pressed="true"] b,.sbtn:hover b{color:var(--sun)}
+.tools{background:rgba(255,248,238,.9)}
+.zip{background:var(--ink);color:#fff}
+.present-btn{background:var(--brand)}
+.card{border-color:transparent}
+.card::before{content:"";position:absolute;left:16px;right:16px;top:0;height:4px;border-radius:0 0 4px 4px;background:var(--gc)}
+.chip{border-color:var(--line)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ev i.on{background:var(--ink);border-color:var(--ink);color:#fff}
+footer{background:#FFF1DE;border-top:0}
+
+/* presentasi terang */
+.pres{background:
+  radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--gc,#FFB020) 22%,transparent) 0 18%,transparent 42%),
+  radial-gradient(circle at 0% 100%,#FFE9B8 0 10%,transparent 34%),
+  #FFFBF5;color:var(--ink)}
+.ptop .brand i{color:var(--brand)}
+.pbtn{border-color:rgba(29,27,63,.18);color:var(--ink);background:#fff}
+.pbtn:hover{background:var(--surface-2)}
+.sl-tag{color:var(--ink-2)}
+.sl-std{color:var(--ink)}
+.sl-h{color:var(--brand)}
+.sl-doc{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+.sl-doc .pv{border:1px solid var(--line)}
+.sl-doc small{color:var(--ink-2)}
+.sl-none{border-color:var(--line);color:var(--ink-2);background:#fff}
+.sl-tip{background:#fff;box-shadow:var(--shadow)}
+.sl-tip b{color:#C76A00}
+.dots button{background:rgba(29,27,63,.10)}
+.dots button.done{background:rgba(29,27,63,.28)}
+.pkeys{color:var(--ink-2)}
+
+/* penampil dokumen terang */
+.viewer{background:var(--desk)}
+.vbar{color:var(--ink);background:#fff;border-bottom:1px solid #DCE3F1}
+.vbar .vt small{color:var(--ink-2)}
+.vbtn{border-color:rgba(29,27,63,.18);color:var(--ink);background:#fff}
+.vbtn.dl{background:var(--sun);border-color:var(--sun);color:#2A1A00}
+.zoom{background:#F2F4FA}
+.zoom .vbtn{background:transparent}
+.zoom .vbtn:hover{background:#E3E8F4}
+.zoom .zl{color:var(--ink)}
+.zoom .vbtn.on{background:#FFE7B8;color:#7A3E00}
+.vmsg{color:var(--ink-2)}
+.vnote{color:var(--ink-2)}
+.vhint{background:rgba(29,27,63,.82);color:#fff}
+.page{box-shadow:0 8px 30px rgba(40,50,90,.18)}
+
+/* ===== PEMILIH TEMA ===== */
+.tbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:7px 12px;font-weight:700;font-size:13.5px}
+.tpop{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 6px);z-index:30;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.18);padding:10px;width:min(340px,calc(100vw - 32px));display:grid;gap:8px}
+.tpop h4{margin:2px 4px 2px;font-family:var(--f-display);font-size:15px;font-weight:800}
+.topt{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;text-align:left;border:2px solid transparent;background:var(--surface-2);border-radius:12px;padding:8px;color:var(--ink)}
+.topt[aria-pressed="true"]{border-color:var(--brand)}
+.topt .sw{display:grid;grid-template-columns:repeat(4,1fr);height:40px;border-radius:8px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.topt b{display:block;font-size:14.5px}
+.topt small{display:block;font-size:12px;color:var(--ink-2);line-height:1.3}
+.tools .wrap{position:relative}
+
+/* ===== UNGGAH & REVISI DOKUMEN ===== */
+.dochead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.dochead h3{margin:0}
+.addbtn{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--brand);color:#fff;border-radius:10px;padding:7px 12px;font-weight:700;font-size:13.5px}
+.docw{position:relative;display:flex;min-width:0}
+.docw .doc{flex:1;min-width:0}
+.revb{position:absolute;top:12px;right:12px;z-index:2;border:0;border-radius:8px;padding:4px 8px;font-size:11.5px;font-weight:800;background:rgba(255,255,255,.95);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.18);opacity:.92}
+.revb:hover{opacity:1;background:var(--sun);color:#2A1A00}
+.ribbon{position:absolute;left:6px;top:6px;font-size:10px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:5px;color:#fff;text-transform:uppercase}
+.ribbon.rev{background:#E8590C}.ribbon.add{background:#7C3AED}
+.pv.ph{display:grid;place-items:center;background:linear-gradient(160deg,var(--phc,#2B5CD8),color-mix(in srgb,var(--phc,#2B5CD8) 60%,#fff))!important}
+.pv.ph .big{font-family:var(--f-display);font-weight:900;font-size:28px;color:#fff;letter-spacing:.04em}
+.doc .ft.pdf{background:#D93025}.doc .ft.img{background:#6B7280}
+.thumbs .ph{width:46px;height:62px;border-radius:4px;border:2px solid var(--surface);margin-left:-8px;display:grid;place-items:center;font-size:9px;font-weight:800;color:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.upform{border:2px dashed var(--brand);border-radius:16px;padding:14px;margin-bottom:12px;background:color-mix(in srgb,var(--brand) 6%,var(--surface));display:grid;gap:10px}
+.upform h4{margin:0;font-family:var(--f-display);font-size:16px;font-weight:800}
+.upform .drop{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-radius:12px;background:var(--surface);border:1px solid var(--line);padding:10px}
+.upform .drop.over{outline:3px solid var(--sun)}
+.upform .pick{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ink);border-radius:10px;padding:6px 12px;font-weight:700;font-size:13.5px;cursor:pointer;position:relative}
+.upform .pick input{position:absolute;opacity:0;width:1px;height:1px}
+.upform .fname{font-size:13.5px;color:var(--ink-2);min-width:0;overflow-wrap:anywhere}
+.upform label.f{display:grid;gap:4px;font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.upform input[type=text],.upform select{font:inherit;font-size:14.5px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%;min-width:0}
+.upform .row2{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:10px}
+.upform .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.upform .acts .go{border:0;background:var(--ink);color:var(--bg);border-radius:10px;padding:8px 14px;font-weight:800}
+.upform .acts .go:disabled{opacity:.45;cursor:default}
+.upform .acts .no{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;font-weight:700}
+.upform .where{font-size:12.5px;color:var(--ink-2)}
+.upform .err{font-size:13px;color:#C62828;font-weight:700}
+.upform .err:empty{display:none}
+@media (max-width:520px){.upform .row2{grid-template-columns:1fr}}
+.hpages{display:block;width:max-content;min-width:100%;margin:0 auto}
+.hpages .docx-wrapper{background:transparent!important;padding:0!important}
+.hpages .docx-wrapper>section.docx{box-shadow:0 8px 30px rgba(40,50,90,.18)!important;margin:0 auto 16px!important}
+.sheet{background:#fff;color:#111;margin:0 auto 16px;padding:18px;box-shadow:0 8px 30px rgba(40,50,90,.18);border-radius:2px;width:max-content;max-width:none}
+.sheet h4{margin:0 0 10px;font-family:var(--f-body);font-size:14px;color:#1D7A46}
+.sheet table{border-collapse:collapse;font-size:12.5px;font-family:Arial,sans-serif}
+.sheet td,.sheet th{border:1px solid #c9ced8;padding:3px 6px;vertical-align:top;white-space:pre-wrap;max-width:420px}
+.vload{display:grid;place-items:center;gap:10px;min-height:50vh;color:var(--ink-2);font-weight:700;text-align:center;padding:20px}
+.vload .spin{width:34px;height:34px;border-radius:50%;border:4px solid color-mix(in srgb,var(--brand) 25%,transparent);border-top-color:var(--brand);animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.vbtn.warn{color:#C62828;border-color:#E9A3A3}
+.vbtn.warn.sure{background:#C62828;color:#fff;border-color:#C62828}
+/* alat presentasi */
+.ptools{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:97;display:flex;align-items:center;gap:4px;padding:5px;border-radius:14px;background:rgba(18,21,47,.86);color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:.55;transition:opacity .2s;cursor:auto}
+.ptools:hover,.ptools:focus-within,.ptools.act{opacity:1}
+body.in-pres .ptools{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+.pt{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;font:600 13px/1 var(--f-body,system-ui);color:#fff;white-space:nowrap}
+.pt:hover{background:rgba(255,255,255,.12)}
+.pt[aria-pressed="true"]{background:#fff;color:#12152F}
+.pt kbd{font:700 10px/1 var(--f-mono,monospace);padding:2px 4px;border-radius:4px;border:1px solid currentColor;opacity:.6}
+.pt .ic{font-size:14px}
+.pcols{display:inline-flex;gap:5px;padding:0 4px}
+.pc{all:unset;cursor:pointer;width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.pc[aria-pressed="true"]{box-shadow:0 0 0 2px #12152F,0 0 0 4px #fff}
+@media (max-width:640px){.pt .tl,.pt kbd{display:none}.pt{padding:8px}}
+.inkc,.trailc{position:fixed;inset:0;width:100vw;height:100vh;z-index:96;pointer-events:none;touch-action:none}
+.inkc.on{pointer-events:auto;cursor:crosshair}
+.ldot{position:fixed;left:0;top:0;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;z-index:98;pointer-events:none;background:radial-gradient(circle,#fff 0 18%,#FF2D3B 30% 62%,rgba(255,45,59,0) 72%);box-shadow:0 0 18px 6px rgba(255,45,59,.55)}
+html.laser .viewer,html.laser .viewer *,html.laser .pres,html.laser .pres *{cursor:none!important}
+.blank{position:fixed;inset:0;z-index:120;background:#000;display:grid;place-items:end center;padding-bottom:18px;cursor:pointer}
+.blank.white{background:#fff}
+.blank span{font:500 12px/1 var(--f-body,system-ui);color:rgba(255,255,255,.18)}
+.blank.white span{color:rgba(0,0,0,.15)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:99;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:calc(100vw - 32px)}
+
+/* ===== GAYA: KLINIS ===== */
+html[data-style="klinis"]{--bg:#F1F8F8;--surface:#FFFFFF;--surface-2:#E4F3F2;--ink:#11323A;--ink-2:#4E6B72;--line:#D3E6E5;--brand:#0E9F9A;--night:#EAF6F5;--desk:#E3EEF0;--onnight:#11323A;--onnight-2:#4E6B72;--shadow:0 1px 2px rgba(10,60,60,.05),0 10px 26px rgba(10,80,80,.09)}
+html[data-style="klinis"] .hero{background:radial-gradient(circle at 96% 0%,#C3EEE8 0 16%,transparent 44%),radial-gradient(circle at 0% 100%,#D7E6FF 0 14%,transparent 40%),radial-gradient(circle at 60% 30%,#F0FBFF 0 10%,transparent 30%),linear-gradient(180deg,#FFFFFF,#ECF8F7)}
+html[data-style="klinis"] .band{background:linear-gradient(100deg,#0B8F8A 0%,#14B8A6 55%,#38BDF8 100%);color:#fff}
+html[data-style="klinis"] .person span{color:rgba(255,255,255,.88)}
+html[data-style="klinis"] .sesi .lbl{color:#E3FFFB}
+html[data-style="klinis"] .sbtn{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4);color:#fff}
+html[data-style="klinis"] .sbtn b{color:#FFE08A}
+html[data-style="klinis"] .sbtn:hover,html[data-style="klinis"] .sbtn[aria-pressed="true"]{background:#fff;color:#0B5F5B;border-color:#fff}
+html[data-style="klinis"] .sbtn[aria-pressed="true"] b,html[data-style="klinis"] .sbtn:hover b{color:#0E9F9A}
+html[data-style="klinis"] .tools{background:rgba(241,248,248,.92)}
+html[data-style="klinis"] footer{background:#E4F3F2}
+html[data-style="klinis"] .pres{background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--gc,#14B8A6) 18%,transparent) 0 18%,transparent 42%),radial-gradient(circle at 0% 100%,#D7F3EF 0 10%,transparent 34%),#F8FDFD}
+html[data-style="klinis"] .sl-tip b{color:#0B7F7A}
+html[data-style="klinis"] .fact svg,html[data-style="klinis"] .topic small{color:#0E9F9A}
+
+/* ===== GAYA: MALAM ===== */
+html[data-style="malam"]{--bg:#0F1226;--surface:#181C3A;--surface-2:#22274B;--ink:#EEF0FF;--ink-2:#A6ABD0;--line:#2C3160;--night:#12152F;--night-2:#1C2045;--desk:#0B0D1F;--onnight:#F2F3FF;--onnight-2:#A9AED6;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 26px rgba(0,0,0,.35);color-scheme:dark}
+html[data-style="malam"] .hero{background:radial-gradient(circle at 92% 6%,rgba(79,107,255,.28),transparent 42%),radial-gradient(circle at 4% 100%,rgba(255,90,78,.18),transparent 38%),#12152F;color:var(--onnight)}
+html[data-style="malam"] .eyebrow b,html[data-style="malam"] .topic small,html[data-style="malam"] .fact svg{color:var(--sun)}
+html[data-style="malam"] .topic{background:#1C2045;box-shadow:none;border:1px solid rgba(255,255,255,.08)}
+html[data-style="malam"] .fact{background:rgba(255,255,255,.08);color:var(--onnight);box-shadow:none}
+html[data-style="malam"] .tile.info{background:#1C2045;color:var(--onnight)}
+html[data-style="malam"] .tile.info .L{color:var(--sun)}
+html[data-style="malam"] .tile{box-shadow:none}
+html[data-style="malam"] .band{background:#1C2045;color:var(--onnight)}
+html[data-style="malam"] .person span{color:var(--onnight-2)}
+html[data-style="malam"] .sesi .lbl{color:var(--sun)}
+html[data-style="malam"] .sbtn{background:transparent;border-color:rgba(255,255,255,.2);color:var(--onnight)}
+html[data-style="malam"] .sbtn b{color:var(--sun)}
+html[data-style="malam"] .sbtn:hover,html[data-style="malam"] .sbtn[aria-pressed="true"]{background:var(--sun);border-color:var(--sun);color:#1a1300}
+html[data-style="malam"] .sbtn[aria-pressed="true"] b,html[data-style="malam"] .sbtn:hover b{color:#1a1300}
+html[data-style="malam"] .tools{background:rgba(15,18,38,.92)}
+html[data-style="malam"] .zip{background:#EEF0FF;color:#12152F}
+html[data-style="malam"] .present-btn{background:var(--brand);color:#fff}
+html[data-style="malam"] .chip[aria-pressed="true"],html[data-style="malam"] .ev i.on{background:#EEF0FF;color:#12152F;border-color:#EEF0FF}
+html[data-style="malam"] footer{background:#12152F}
+html[data-style="malam"] .pres{background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--gc,#4F6BFF) 22%,transparent) 0 16%,transparent 42%),#12152F;color:var(--onnight)}
+html[data-style="malam"] .ptop .brand i{color:var(--sun)}
+html[data-style="malam"] .pbtn{background:transparent;border-color:rgba(255,255,255,.22);color:#fff}
+html[data-style="malam"] .pbtn:hover{background:rgba(255,255,255,.1)}
+html[data-style="malam"] .sl-doc,html[data-style="malam"] .sl-tip,html[data-style="malam"] .sl-none{background:#1C2045;color:var(--onnight);box-shadow:none}
+html[data-style="malam"] .sl-tip b,html[data-style="malam"] .sl-h{color:var(--sun)}
+html[data-style="malam"] .dots button{background:rgba(255,255,255,.14)}
+html[data-style="malam"] .dots button.done{background:rgba(255,255,255,.4)}
+html[data-style="malam"] .vbar{background:#141836;color:#fff;border-bottom-color:rgba(255,255,255,.08)}
+html[data-style="malam"] .vbtn{background:transparent;color:#fff;border-color:rgba(255,255,255,.22)}
+html[data-style="malam"] .vbtn.dl{background:var(--sun);color:#1a1300;border-color:var(--sun)}
+html[data-style="malam"] .zoom{background:rgba(255,255,255,.08)}
+html[data-style="malam"] .zoom .vbtn:hover{background:rgba(255,255,255,.12)}
+html[data-style="malam"] .zoom .zl{color:#fff}
+html[data-style="malam"] .zoom .vbtn.on{background:rgba(255,176,32,.25);color:#FFD27A}
+html[data-style="malam"] .vhint{background:rgba(255,255,255,.9);color:#12152F}
+html[data-style="malam"] .page{box-shadow:0 10px 40px rgba(0,0,0,.5)}
+html[data-style="malam"] .revb{background:#EEF0FF;color:#12152F}
+html[data-style="malam"] .upform .acts .go{background:#EEF0FF;color:#12152F}
+</style>
+</head>
+<body>
+
+<script>try{var _st=localStorage.getItem("rh-style");if(_st)document.documentElement.setAttribute("data-style",_st)}catch(e){}</script>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <button class="logo" id="logoBtn" data-p="logo" title="Klik untuk unggah logo HIPPII" aria-label="Logo HIPPII"><span class="lph">＋ Unggah logo HIPPII</span></button>
+      <div class="eyebrow"><b>HIPPII DIY</b> mempersembahkan</div>
+      <h1 class="title"><span class="r">Rumah</span><span class="h" id="hijo"></span></h1>
+      <div class="sub">Ruang Cerita <i>HIPPII JOGJA</i></div>
+      <div class="topic"><small>TOPIK</small><b>Sharing dan Diskusi Standar Akreditasi PPI</b></div>
+      <div class="facts">
+        <span class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Minggu, 18 Oktober 2026</span>
+        <span class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>08.00–12.00 WIB</span>
+        <span class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Auditorium RS Panti Rapih</span>
+      </div>
+    </div>
+    <div class="mosaic" id="mosaic" aria-label="13 fokus standar PPI"></div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="wrap">
+    <div class="person"><button class="av" data-p="sp" style="background:#FF5A4E" title="Klik untuk unggah foto narasumber" aria-label="Foto narasumber SP"><span class="ini">SP</span><span class="cam" aria-hidden="true">📷</span></button><div><b>Sri Purwaningsih, S.Kep., Ns., M.Sc</b><span>Wakil Ketua HIPPII DIY</span></div></div>
+    <div class="person"><button class="av" data-p="ad" style="background:#4F6BFF" title="Klik untuk unggah foto narasumber" aria-label="Foto narasumber AD"><span class="ini">AD</span><span class="cam" aria-hidden="true">📷</span></button><div><b>Alexander Dadi Rahmadi, S.Kep., Ns</b><span>Wakil Ketua Bidang Hukum, Organisasi &amp; Kaderisasi</span></div></div>
+    <div class="person"><button class="av" data-p="is" style="background:#14B8A6" title="Klik untuk unggah foto narasumber" aria-label="Foto narasumber IS"><span class="ini">IS</span><span class="cam" aria-hidden="true">📷</span></button><div><b>Istiqomah, S.Kep., Ns., M.Sc.</b><span>Wakil Ketua Bidang Pelayanan &amp; Kesejahteraan</span></div></div>
+    <div class="sesi"><span class="lbl">Materi · klik untuk saring</span><div class="row" id="sesi"></div></div>
+  </div>
+</section>
+
+<div class="tools">
+  <div class="wrap">
+    <div class="trow">
+      <label class="search" for="q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="Cari standar atau dokumen: ICRA, linen, outbreak…" autocomplete="off"></label>
+      <span class="stat" id="stat"></span><span class="off" id="off"></span>
+      <button class="tbtn" id="themeBtn" aria-expanded="false" aria-controls="themePop">🎨 Tema</button>
+      <a class="gdrive" href="https://drive.google.com/drive/folders/14Nsg7YrYCobSfl-5P9xAQwrmRk4RcjP8?usp=sharing" target="_blank" rel="noopener">Folder Drive ↗</a>
+      <button class="zip present-btn" id="present">▶ Mode presentasi</button><button class="zip" id="zipreal" hidden>⬇ Unduh semua (ZIP)</button><button class="zip inst" id="install" hidden>⤓ Instal aplikasi</button>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="tpop" id="themePop" hidden role="dialog" aria-label="Pilih gaya tampilan"><h4>Gaya tampilan</h4><div id="themeOpts" style="display:grid;gap:8px"></div></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="listhead"><h2 id="lh">Semua standar</h2><p id="lsub">Klik standar untuk melihat contoh dokumen, elemen penilaian, dan tips telusur.</p></div>
+  <div class="cards" id="cards"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Sumber standar:</b> KMK HK.01.07/MENKES/1596/2024 tentang Standar Akreditasi Rumah Sakit (pengganti KMK 1128/2022) dan Instrumen Survei Akreditasi Rumah Sakit (Kepdirjen Yankes HK.02.02/D/47104/2024, 30 Desember 2024), Bab PPI. Elemen penilaian, cara pembuktian (R/D/W/O/S), kelengkapan bukti, skoring, dan sasaran wawancara mengikuti instrumen 2024; maksud dan tujuan diringkas untuk bahan diskusi.</p>
+    <p><b>Contoh dokumen</b> berasal dari folder "Contoh dokument" dan bisa diunduh dalam format aslinya. Spasi antarkata dan lebar kolom tabel sudah dirapikan. Sesuaikan dengan regulasi dan kondisi rumah sakit masing-masing.</p>
+    <p>Dokumen yang ditambahkan lewat "Dokumen milik RS" hanya tersimpan di browser perangkat ini.</p>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="dtitle">
+  <div class="dtop" id="dtop">
+    <div class="dnav"><span class="dcode" id="dcode"></span><span class="sp"></span>
+      <button class="ib" id="dpresent" aria-label="Tayangkan standar ini">▶ Tayangkan</button>
+      <button class="ib" id="prev" aria-label="Standar sebelumnya">‹</button>
+      <button class="ib" id="next" aria-label="Standar berikutnya">›</button>
+      <button class="ib" id="close" aria-label="Tutup">✕</button></div>
+    <h2 id="dtitle"></h2><div class="grp" id="dgrp"></div>
+  </div>
+  <div class="dbody" id="dbody"></div>
+</aside>
+
+<div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
+<div class="help" id="help" hidden role="dialog" aria-modal="true" aria-labelledby="helpt"><div class="box"><h3 id="helpt">Instal Rumah HIJO</h3><div id="helpbody"></div><button id="helpok">Mengerti</button></div></div>
+<div class="pres" id="pres" hidden role="dialog" aria-modal="true" aria-label="Mode presentasi">
+  <div class="ptop"><span class="brand"><img class="plogo" alt="" hidden>Rumah <i>HIJO</i> · Standar PPI</span><span class="sp"></span>
+    <button class="pbtn" id="pfull">⛶ Layar penuh</button><button class="pbtn" id="pexit">Keluar ✕</button></div>
+  <div class="pmain" id="pmain"></div>
+  <div class="pbot"><button class="pbtn" id="pprev" aria-label="Standar sebelumnya">‹<span class="lw"> Sebelumnya</span></button><div class="dots" id="dots"></div><span class="pcount" id="pcount"></span><button class="pbtn" id="pnext" aria-label="Standar berikutnya"><span class="lw">Berikutnya </span>›</button><span class="pkeys">← → / clicker · Esc keluar</span></div>
+</div>
+<div class="ptools" id="ptools" hidden role="toolbar" aria-label="Alat presentasi">
+  <button class="pt" id="ptLaser" data-m="laser" title="Laser pointer (L)" aria-pressed="false"><span class="ic">🔴</span><span class="tl">Pointer</span><kbd>L</kbd></button>
+  <button class="pt" id="ptInk" data-m="ink" title="Stabilo / coret (S)" aria-pressed="false"><span class="ic">🖍</span><span class="tl">Stabilo</span><kbd>S</kbd></button>
+  <span class="pcols" id="pcols" hidden><button class="pc" data-c="hl" style="--c:#FFE14D" title="Stabilo kuning" aria-pressed="true"></button><button class="pc" data-c="red" style="--c:#FF2D3B" title="Pena merah" aria-pressed="false"></button><button class="pc" data-c="green" style="--c:#16C172" title="Pena hijau" aria-pressed="false"></button></span>
+  <button class="pt" id="ptClear" title="Hapus coretan (E)"><span class="ic">🧽</span><span class="tl">Hapus</span></button>
+  <button class="pt" id="ptBlack" title="Layar hitam (B) · layar putih (W)"><span class="ic">⬛</span><span class="tl">Layar hitam</span><kbd>B</kbd></button>
+</div>
+<canvas class="inkc" id="inkc" hidden></canvas>
+<canvas class="trailc" id="trailc" hidden></canvas>
+<div class="ldot" id="ldot" hidden></div>
+<div class="blank" id="blank" hidden><span>Tekan tombol apa saja atau klik untuk kembali</span></div>
+<div class="viewer" id="viewer" hidden role="dialog" aria-modal="true">
+  <div class="vbar">
+    <button class="vbtn" id="vprev" aria-label="Dokumen sebelumnya">‹</button>
+    <div class="vt"><b id="vtitle"></b><small id="vsub"></small></div>
+    <button class="vbtn" id="vnext" aria-label="Dokumen berikutnya">›</button>
+    <div class="zoom" role="group" aria-label="Zoom dokumen">
+      <button class="vbtn" id="zout" aria-label="Perkecil">−</button><span class="zl" id="zl">100%</span><button class="vbtn" id="zin" aria-label="Perbesar">+</button>
+      <button class="vbtn" id="zfitw" title="Sesuaikan lebar layar">↔ Lebar</button><button class="vbtn" id="zfitp" title="Satu halaman penuh">▢ Halaman</button>
+    </div>
+    <button class="vbtn" id="vorig" hidden>Lihat versi asli</button>
+    <button class="vbtn" id="vrevd" hidden>Lihat revisi</button>
+    <button class="vbtn warn" id="vdel" hidden>Hapus</button>
+    <button class="vbtn dl" id="vdl" hidden>⬇ Unduh</button>
+    <button class="vbtn" id="vclose">Tutup ✕</button>
+    <div class="vmsg" id="vmsg" aria-live="polite"></div>
+  </div>
+  <div class="vscroll" id="vbody"></div><div class="vhint" id="vhint">Klik dua kali untuk memperbesar bagian yang ditunjuk · seret untuk menggeser</div>
+</div>
+
+<script>
+const GROUPS=[
+ ["A","Penyelenggaraan PPI di RS"],["B","Program PPI"],["C","Pengkajian Risiko (ICRA)"],["D","Peralatan Medis dan/atau BMHP"],
+ ["E","Kebersihan Lingkungan"],["F","Manajemen Linen"],["G","Limbah Infeksius"],["H","Pelayanan Makanan"],
+ ["I","Risiko Infeksi Konstruksi & Renovasi"],["J","Penularan Infeksi"],["K","Kebersihan Tangan & APD"],
+ ["L","Peningkatan Mutu (Integrasi PMKP)"],["M","Edukasi, Pendidikan & Pelatihan"]];
+
+const SESI=[
+ {n:1,t:"Kewaspadaan Isolasi dalam Standar Akreditasi",s:["PPI 2","PPI 10","PPI 10.1","PPI 11","PPI 11.1"]},
+ {n:2,t:"Audit PPI dalam Standar Akreditasi",s:["PPI 1.1","PPI 5","PPI 6","PPI 7.2","PPI 11","PPI 11.1","PPI 12"]},
+ {n:3,t:"ICRA dalam Standar Akreditasi",s:["PPI 3","PPI 5","PPI 9"]},
+ {n:4,t:"Sharing Wawancara dan Telusur saat Akreditasi",s:"all"}];
+
+/* EP (Instrumen Akreditasi RS 2024): [huruf, teks, R/D/W/O/S, kelengkapan bukti, skoring, wawancara] */
+const STD=[{"id":"PPI 1","g":"A","judul":"Komite/Tim PPI dan dukungan sumber daya","std":"Rumah sakit menetapkan Komite/Tim PPI untuk melakukan pengkajian, perencanaan, pelaksanaan, pemantauan, dan evaluasi kegiatan PPI, serta menyediakan sumber daya untuk mendukung program PPI.","mt":"Komite/Tim PPI melibatkan staf klinis dan nonklinis (IPCN, pemeliharaan fasilitas, dapur, tata graha, laboratorium, farmasi, epidemiologi, mikrobiologi, CSSD, bagian umum). Koordinasi pimpinan–Komite/Tim PPI meliputi kriteria definisi HAIs, metode surveilans, strategi penanganan risiko dan pelaporannya, serta komunikasi ke semua unit. Dukungan sumber daya: anggaran, SDM terlatih, sarana (handrub, handwash, kantong limbah infeksius), sistem informasi, dan sarana penunjang. Data PPI diintegrasikan ke Komite/Tim Mutu setiap bulan.","ep":[["a","Direktur rumah sakit telah menetapkan regulasi PPI meliputi a–m pada gambaran umum.","R","Pedoman PPI di rumah sakit meliputi a–m pada gambaran umum.","10·0",""],["b","Direktur rumah sakit telah menetapkan Komite/Tim PPI untuk mengelola dan mengawasi kegiatan PPI di rumah sakit.","R","Penetapan Komite/Tim PPI disertai uraian tugas, tanggung jawab, dan wewenang.","10·0",""],["c","Rumah sakit telah menerapkan mekanisme koordinasi yang melibatkan pimpinan rumah sakit dan Komite/Tim PPI untuk melaksanakan program PPI sesuai maksud dan tujuan.","DW","Bukti penerapan mekanisme koordinasi pimpinan rumah sakit dan Komite/Tim PPI untuk melaksanakan program PPI.","10·5·0","Pimpinan RS; Komite/Tim PPI"],["d","Direktur rumah sakit memberikan dukungan sumber daya terhadap penyelenggaraan kegiatan PPI meliputi namun tidak terbatas pada maksud dan tujuan.","DOW","D: bukti dukungan sumber daya dari direktur. O: kelengkapan fasilitas pendukung penyelenggaraan PPI.","10·5·0","Komite/Tim PPI; IPCN"]],"bukti":["Pedoman PPI (ruang lingkup A–M)","SK pembentukan Komite/Tim PPI","SOTK & uraian tugas","Undangan, daftar hadir, notulen rapat","RKA/RAB kegiatan PPI"],"tip":"Surveior biasanya meminta Ketua Komite menjelaskan alur koordinasi ke direktur. Siapkan notulen rapat terakhir beserta RTL yang sudah ditindaklanjuti, bukan hanya undangannya."},
+{"id":"PPI 1.1","g":"A","judul":"IPCN purna waktu dan IPCLN","std":"Direktur rumah sakit menetapkan Komite/Tim PPI untuk mengelola dan mengawasi kegiatan PPI sesuai jenis pelayanan, kebutuhan, beban kerja, dan/atau klasifikasi rumah sakit; Komite/Tim PPI dipimpin tenaga medis berpengalaman klinis dan PPI.","mt":"Rumah sakit menetapkan IPCN purna waktu dan IPCLN berdasarkan jumlah dan kualifikasi sesuai ukuran RS, kompleksitas kegiatan, tingkat risiko, dan cakupan program. Kualifikasi minimal D-3 keperawatan dan sudah mengikuti pelatihan perawat PPI. IPCN menjadi penggerak monitoring, audit, dan umpan balik atas kewaspadaan standar, transmisi, dan bundle HAIs.","ep":[["a","Rumah sakit menetapkan perawat PPI/IPCN purna waktu dan IPCLN berdasarkan jumlah dan kualifikasi sesuai ukuran rumah sakit, kompleksitas kegiatan, tingkat risiko, cakupan program, dan peraturan perundang-undangan.","R","Penetapan perawat PPI/IPCN purna waktu dan IPCLN sesuai ketentuan dan peraturan perundang-undangan.","10·5·0",""],["b","Ada bukti perawat PPI/IPCN melaksanakan supervisi pada semua kegiatan PPI di rumah sakit.","DW","Bukti IPCN melaksanakan monitoring, audit, dan umpan balik pada semua kegiatan PPI, meliputi kewaspadaan standar, kewaspadaan transmisi, dan penerapan bundle HAIs.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan/Instalasi"]],"bukti":["SK IPCN purna waktu","SK IPCLN per unit","Sertifikat pelatihan IPCN/IPCLN","Log book IPCN","Laporan supervisi, audit, surveilans"],"tip":"Log book IPCN menjadi bukti paling kuat untuk EP b. Pastikan isinya mencakup supervisi di area penunjang (laundry, gizi, CSSD, kamar jenazah), bukan hanya ruang rawat."},
+{"id":"PPI 2","g":"B","judul":"Program PPI terpadu berbasis risiko","std":"Rumah sakit menyusun dan menerapkan program PPI yang terpadu dan menyeluruh untuk mencegah penularan infeksi terkait pelayanan kesehatan, berdasarkan pengkajian risiko secara proaktif setiap tahun.","mt":"Program mencakup kewaspadaan isolasi: 11 komponen kewaspadaan standar (kebersihan tangan, APD, dekontaminasi peralatan, pengendalian lingkungan, limbah, linen, perlindungan kesehatan petugas, penempatan pasien, etika batuk, praktik menyuntik aman, praktik lumbal pungsi aman) dan kewaspadaan transmisi (kontak, droplet, airborne). Juga surveilans, bundles HAIs, diklat, dan penggunaan antimikroba bijak (PPRA).","ep":[["a","Rumah sakit menetapkan kebijakan program PPI yang terdiri dari kewaspadaan standar dan kewaspadaan transmisi sesuai maksud dan tujuan.","R","Penetapan program PPI yang terdiri dari kewaspadaan standar dan kewaspadaan transmisi.","10·0",""],["b","Rumah sakit melakukan evaluasi pelaksanaan program PPI.","DW","Bukti evaluasi pelaksanaan program PPI disertai tindak lanjut.","10·5·0","Komite/Tim PPI; IPCN"]],"bukti":["Kebijakan program PPI","Program kerja tahunan","Laporan evaluasi program","Rencana tindak lanjut"],"tip":"Tunjukkan benang merah: hasil ICRA tahun lalu → prioritas program tahun ini → evaluasi. Program yang tidak merujuk ICRA sering dipertanyakan."},
+{"id":"PPI 3","g":"C","judul":"ICRA tahunan dan surveilans","std":"Rumah sakit melakukan pengkajian risiko proaktif setiap tahun sebagai dasar penyusunan program PPI terpadu.","mt":"ICRA mencakup infeksi penting secara epidemiologis (data surveilans), area berisiko tinggi, peralatan dan prosedur berisiko, linen, sterilisasi, kebersihan lingkungan, sampah, makanan, dan kamar jenazah. Data surveilans dikumpulkan periodik dan dianalisis tiap triwulan: VAP, ISK, IADP/plebitis, IDO, MDRO, serta emerging/re-emerging disease.","ep":[["a","Rumah sakit secara proaktif melaksanakan pengkajian risiko pengendalian infeksi (ICRA) setiap tahun terhadap tingkat dan kecenderungan infeksi layanan kesehatan sesuai poin a)–k), lalu memakai datanya untuk menentukan prioritas/fokus program PPI.","DW","1. Bukti ICRA tahunan meliputi poin a)–k). 2. Bukti data tersebut dipakai untuk menentukan prioritas/fokus program PPI.","10·5·0","Komite/Tim PPI; IPCN"],["b","Rumah sakit melaksanakan surveilans data secara periodik dan menganalisisnya setiap triwulan, meliputi poin a)–f).","DW","Bukti surveilans data periodik yang dianalisis setiap triwulan, meliputi a)–f).","10·5·0","Komite/Tim PPI; IPCN"]],"bukti":["ICRA program","ICRA HAIs","ICRA area penunjang","Laporan analisis surveilans triwulan"],"tip":"Siapkan grafik tren HAIs per triwulan dan narasi analisis (penyebab, RTL). Surveior menilai analisisnya, bukan hanya angka laju infeksinya."},
+{"id":"PPI 4","g":"D","judul":"Pembersihan, disinfeksi, sterilisasi, penyimpanan","std":"Rumah sakit mengurangi risiko infeksi terkait peralatan medis dan/atau BMHP dengan memastikan kebersihan, disinfeksi, sterilisasi, dan penyimpanan yang memenuhi syarat.","mt":"Tingkat pemrosesan mengikuti kategori Spaulding: kritikal (sterilisasi), semi-kritikal (DTT), non-kritikal (disinfeksi tingkat rendah). Metode seragam di semua area, penyimpanan alat steril bersih, kering, terlindung dari debu, lembab, dan suhu ekstrem.","ep":[["a","Rumah sakit telah menerapkan pengolahan sterilisasi mengikuti peraturan perundang-undangan.","DOW","D: bukti penerapan pengolahan sterilisasi. O: pengelolaan sterilisasi sesuai peraturan.","10·5·0","IPCN; Kepala/Staf CSSD"],["b","Staf yang memroses peralatan medis dan/atau BMHP telah diberi pelatihan pembersihan, disinfeksi, dan sterilisasi serta mendapat pengawasan.","DW","1. Bukti pelatihan staf tentang pembersihan, disinfeksi, dan sterilisasi. 2. Bukti monitoring staf yang memroses peralatan medis dan/atau BMHP.","10·5·0","IPCN; Kepala/Staf CSSD"],["c","Metode pembersihan, disinfeksi, dan sterilisasi dilakukan secara seragam di semua area rumah sakit.","DOW","D: bukti penerapan metode yang seragam. O: proses pembersihan, disinfeksi, dan sterilisasi yang seragam di semua area.","10·5·0","IPCN; Kepala/Staf CSSD; Kepala/Staf Unit Pelayanan"],["d","Peralatan medis dan/atau BMHP bersih dan steril disimpan dengan baik di area penyimpanan yang ditetapkan, bersih dan kering, serta terlindung dari debu, kelembapan, dan perubahan suhu yang ekstrem.","DOW","D: bukti pemantauan suhu dan kelembapan area penyimpanan alat bersih dan steril. O: penyimpanan peralatan medis dan/atau BMHP bersih dan steril.","10·5·0","IPCN; Kepala/Staf CSSD; Kepala/Staf Unit Pelayanan"],["e","Bila sterilisasi dilaksanakan di luar rumah sakit, harus oleh lembaga bersertifikasi mutu dan ada kerja sama yang menjamin kepatuhan proses sterilisasi sesuai peraturan perundang-undangan.","DW","1. Bukti perjanjian kerja sama dengan pihak ketiga. 2. Bukti sertifikat mutu pihak ketiga.","10·5·0·TDD","Komite/Tim PPI; IPCN"]],"bukti":["Pedoman & SPO CSSD","Rekaman indikator sterilisasi","Sertifikat pelatihan staf CSSD","PKS sterilisasi pihak ketiga (bila ada)"],"tip":"Surveior akan melihat proses di unit yang memproses alat sendiri (poli gigi, endoskopi, kamar bersalin). Pastikan metodenya sama dengan CSSD. EP e bisa tidak dapat diterapkan bila sterilisasi seluruhnya di dalam RS."},
+{"id":"PPI 4.1","g":"D","judul":"Alat kedaluwarsa dan reuse alat sekali pakai","std":"Rumah sakit mengidentifikasi dan menetapkan proses pengelolaan peralatan medis/BMHP kedaluwarsa dan penggunaan ulang (reuse) alat sekali pakai bila diizinkan.","mt":"Ketentuan reuse memuat: alat yang boleh dipakai ulang, jumlah maksimum pemakaian, tanda kerusakan, proses pembersihan segera, identitas pasien pada BMHP hemodialisis, pencatatan di rekam medis, dan evaluasi risiko infeksi. Daftar alat yang disetujui ditinjau rutin.","ep":[["a","Rumah sakit menetapkan peralatan medis dan/atau BMHP yang dapat digunakan ulang meliputi a)–g) dalam maksud dan tujuan.","R","Penetapan daftar peralatan medis dan/atau BMHP yang dapat digunakan ulang meliputi a)–g).","10·5·0",""],["b","Rumah sakit menggunakan proses terstandar untuk menentukan kapan peralatan medis dan/atau BMHP yang digunakan ulang sudah tidak aman atau tidak layak digunakan ulang.","R","Regulasi untuk menentukan kapan alat/BMHP reuse sudah tidak aman atau tidak layak digunakan ulang.","10·0",""],["c","Ada bukti pemantauan, evaluasi, dan tindak lanjut pelaksanaan penggunaan kembali (reuse) peralatan medis dan/atau BMHP meliputi a)–g) dalam maksud dan tujuan.","DW","Bukti pemantauan, evaluasi, dan tindak lanjut pelaksanaan reuse meliputi a)–g).","10·5·0","Komite/Tim PPI; IPCN"]],"bukti":["Kebijakan & pedoman single use/reuse","Daftar alat reuse yang disetujui","Pencatatan reuse di RM","Penandaan alat reuse","Hasil monitoring"],"tip":"Siapkan daftar alat reuse yang terkini beserta batas maksimum pakai. Surveior bisa mencocokkan penandaan di alat dengan catatan di rekam medis."},
+{"id":"PPI 5","g":"E","judul":"Pembersihan dan disinfeksi permukaan & lingkungan","std":"Rumah sakit mengidentifikasi dan menerapkan standar PPI yang diakui untuk pembersihan dan disinfeksi permukaan dan lingkungan.","mt":"RS menetapkan frekuensi, peralatan dan cairan, petugas penanggung jawab, dan area yang perlu pembersihan lebih sering. Pembersihan terminal dilakukan setelah pasien pulang. Pembersihan dipantau, termasuk dari keluhan dan pujian pasien/keluarga.","ep":[["a","Rumah sakit menerapkan prosedur pembersihan dan disinfeksi permukaan dan lingkungan sesuai standar PPI.","DOW","D: bukti pembersihan dan disinfeksi permukaan dan lingkungan sesuai standar (hasil audit). O: proses/hasil pembersihan dan disinfeksi.","10·5·0","Komite/Tim PPI; IPCN; Staf unit terkait"],["b","Rumah sakit melaksanakan pembersihan dan disinfeksi tambahan di area berisiko tinggi berdasarkan hasil pengkajian risiko.","DOW","D: bukti pengkajian risiko (risk register) sebagai dasar pembersihan dan disinfeksi tambahan di area berisiko tinggi. O: proses/hasil pembersihan tambahan.","10·5·0","Komite/Tim PPI; IPCN; Staf unit terkait"],["c","Rumah sakit telah melakukan pemantauan proses pembersihan dan disinfeksi lingkungan.","DO","D: bukti pemantauan proses pembersihan dan disinfeksi lingkungan (hasil audit). O: unit pelayanan.","10·5·0",""]],"bukti":["Kebijakan, pedoman, SPO pembersihan","ICRA sanitasi/lingkungan","Hasil audit & supervisi kebersihan"],"tip":"Petugas kebersihan (termasuk outsourcing) sering ditanya langsung: konsentrasi larutan, urutan bersih ke kotor, dan beda pembersihan harian dengan terminal."},
+{"id":"PPI 6","g":"F","judul":"Pengelolaan linen/laundry","std":"Rumah sakit menerapkan pengelolaan linen/laundry sesuai prinsip PPI dan peraturan perundang-undangan.","mt":"Pengelolaan meliputi pengumpulan, pemilahan, pencucian, pengeringan, pelipatan, distribusi, dan penyimpanan. RS menetapkan area yang mewajibkan APD bagi petugas.","ep":[["a","Ada unit kerja pengelola linen/laundry yang menyelenggarakan penatalaksanaan sesuai peraturan perundang-undangan.","R","Penetapan unit kerja pengelola linen/laundry, atau dokumen perjanjian kerja sama (jika memakai pihak luar).","10·0",""],["b","Prinsip-prinsip PPI diterapkan pada pengelolaan linen/laundry, termasuk pemilahan, transportasi, pencucian, pengeringan, penyimpanan, dan distribusi.","DOW","D: bukti penerapan pengelolaan linen/laundry. O: unit linen/laundry atau pihak luar rumah sakit.","10·5·0","Komite/Tim PPI; IPCN; Kepala/Staf Linen/Laundry atau pihak luar"],["c","Ada bukti supervisi oleh IPCN terhadap pengelolaan linen/laundry sesuai prinsip PPI, termasuk bila dilaksanakan oleh pihak luar rumah sakit.","DW","Bukti supervisi IPCN terhadap pengelolaan linen/laundry beserta tindak lanjutnya (hasil audit).","10·5·0","IPCN atau pihak luar rumah sakit"]],"bukti":["Kebijakan, pedoman, SPO linen","SK unit laundry","Rekaman monitoring & evaluasi","Laporan supervisi IPCN (termasuk vendor)"],"tip":"Bila laundry dikerjakan vendor, surveior menanyakan bukti supervisi IPCN ke lokasi vendor dan bagaimana temuan ditindaklanjuti dalam kontrak."},
+{"id":"PPI 7","g":"G","judul":"Pengelolaan limbah infeksius","std":"Rumah sakit mengurangi risiko infeksi melalui pengelolaan limbah infeksius sesuai peraturan perundang-undangan.","mt":"Mencakup pemilahan, pewadahan, pengangkutan, penyimpanan sementara, dan pemusnahan limbah infeksius, termasuk darah dan komponen darah, serta pelaporan pajanan.","ep":[["a","Rumah sakit telah menerapkan pengelolaan limbah untuk meminimalkan risiko infeksi, meliputi a)–e) pada maksud dan tujuan.","DOW","D: bukti penerapan pengelolaan limbah meliputi a)–e). O: pengelolaan limbah rumah sakit.","10·5·0","IPCN; PJ/Staf Kesling"],["b","Penanganan dan pembuangan darah serta komponen darah sesuai regulasi, dipantau dan dievaluasi, serta ditindaklanjuti.","DW","1. Bukti penanganan dan pembuangan darah serta komponen darah sesuai regulasi. 2. Bukti pemantauan, evaluasi, dan tindak lanjut (hasil audit).","10·5·0","IPCN; Staf unit terkait"],["c","Pelaporan pajanan limbah infeksius sesuai regulasi dan dilaksanakan pemantauan, evaluasi, serta tindak lanjutnya.","DW","1. Bukti pelaporan pajanan limbah infeksius sesuai regulasi. 2. Bukti pemantauan, evaluasi, dan tindak lanjutnya.","10·5·0","IPCN; PJ/Staf Kesling"],["d","Bila pengelolaan limbah dilaksanakan oleh pihak luar rumah sakit, harus berdasar kerja sama dengan pihak yang memiliki izin dan sertifikasi mutu sesuai peraturan perundang-undangan.","DW","Dokumen: kerja sama dengan transporter dan pengolah B3, izin transporter, izin pengolah B3, sertifikat mutu.","10·5·0·TDD","IPCN; PJ/Staf Kesling; Petugas pengelola limbah"]],"bukti":["Kebijakan, pedoman, SPO limbah","Log book & manifest limbah B3","MoU transporter & pengolah + izin","Laporan pajanan"],"tip":"Siapkan izin transporter dan pengolah yang masih berlaku dan cocokkan dengan manifest. Izin kedaluwarsa adalah temuan yang sering muncul."},
+{"id":"PPI 7.1","g":"G","judul":"Kamar jenazah dan bedah mayat","std":"Rumah sakit menetapkan pengelolaan kamar mayat dan kamar bedah mayat sesuai peraturan perundang-undangan.","mt":"Pemulasaraan jenazah, terutama jenazah infeksius, mengikuti prinsip PPI: APD sesuai risiko, dekontaminasi alat dan ruang, serta alur yang aman bagi petugas dan keluarga.","ep":[["a","Pemulasaraan jenazah dan bedah mayat sesuai dengan regulasi.","D","Laporan kegiatan pemulasaraan jenazah dan bedah mayat.","10·5·0",""],["b","Ada bukti kegiatan kamar mayat dan kamar bedah mayat sudah dikelola sesuai peraturan perundang-undangan.","OW","O: alur dan fasilitas kamar mayat dan kamar bedah mayat.","10·5·0","IPCN; Kepala/Staf Kamar Jenazah"],["c","Ada bukti pemantauan dan evaluasi, serta tindak lanjut kepatuhan prinsip-prinsip PPI sesuai peraturan perundang-undangan.","D","Bukti pemantauan, evaluasi, dan tindak lanjut kepatuhan prinsip PPI (hasil audit).","10·5·0",""]],"bukti":["Kebijakan, pedoman, SPO pemulasaraan","Monitoring kamar jenazah","Audit kepatuhan"],"tip":"Untuk RS tanpa layanan bedah mayat, sebagian EP dapat dinyatakan tidak dapat diterapkan. Tetap siapkan bukti pemulasaraan jenazah infeksius."},
+{"id":"PPI 7.2","g":"G","judul":"Limbah benda tajam dan jarum","std":"Rumah sakit menetapkan pengelolaan limbah benda tajam dan jarum secara aman.","mt":"Wadah benda tajam (safety box) dapat ditutup, antitusuk, antibocor di dasar dan sisi, tersedia dan mudah dijangkau, serta tidak boleh terisi terlalu penuh (praktiknya ditutup saat ¾ penuh). Regulasi mencakup semua tahapan: identifikasi jenis dan penggunaan wadah, pembuangan, surveilans proses, dan laporan tertusuk jarum/benda tajam.","ep":[["a","Benda tajam dan jarum sudah dikumpulkan dan disimpan di wadah yang tidak tembus, tidak bocor, berwarna kuning, berlabel infeksius, dan dipakai hanya sekali sesuai peraturan perundang-undangan.","OW","O: pengumpulan, pelabelan, dan penyimpanan benda tajam dan jarum dalam wadah yang sesuai.","10·5·0","IPCLN; IPCN; Kepala/Staf Unit Pelayanan; Petugas Cleaning Service"],["b","Bila pengelolaan benda tajam dan jarum dilaksanakan oleh pihak luar rumah sakit, harus berdasar kerja sama dengan pihak yang memiliki izin dan sertifikasi mutu sesuai peraturan perundang-undangan.","DW","Dokumen: kerja sama dengan transporter dan pengolah B3, izin transporter, izin pengolah B3, sertifikat mutu.","10·5·0·TDD","IPCN; PJ/Staf Kesling"],["c","Ada bukti data dokumen limbah benda tajam dan jarum.","DW","Bukti data dokumen limbah benda tajam dan jarum.","10·5·0","IPCN; PJ/Staf Kesling; PJ/Petugas Cleaning Service"],["d","Ada bukti supervisi dan pemantauan oleh IPCN terhadap pengelolaan benda tajam dan jarum sesuai prinsip PPI, termasuk bila dilaksanakan oleh pihak luar rumah sakit.","DW","Bukti supervisi dan pemantauan IPCN berupa: form ceklis, laporan pelaksanaan supervisi, hasil audit.","10·5·0","IPCN; PJ/Staf Kesling; PJ/Petugas Cleaning Service; Kepala Unit/Ruangan"],["e","Ada bukti pelaksanaan pemantauan kepatuhan prinsip-prinsip PPI sesuai regulasi.","DW","Bukti pemantauan kepatuhan prinsip-prinsip PPI (hasil audit).","10·5·0","Komite/Tim PPI; IPCN"]],"bukti":["SPO benda tajam","Audit safety box","Data timbulan limbah tajam","Laporan supervisi IPCN"],"tip":"Surveior sering mengecek safety box di troli tindakan: isi tidak melebihi ¾, label tanggal, dan posisi terjangkau. Siapkan audit dengan foto."},
+{"id":"PPI 8","g":"H","judul":"Pelayanan makanan","std":"Rumah sakit mengurangi risiko infeksi terkait penyelenggaraan pelayanan makanan.","mt":"Penyimpanan dan penyiapan makanan bisa menimbulkan keracunan atau infeksi. Penyimpanan bahan, pengolahan, pemorsian, dan distribusi harus sesuai regulasi, dengan sanitasi, suhu, pencahayaan, kelembapan, dan ventilasi yang terjaga.","ep":[["a","Rumah sakit menetapkan regulasi tentang pelayanan makanan di rumah sakit meliputi a)–b) pada maksud dan tujuan.","R","Regulasi pelayanan makanan meliputi a)–b): pengelolaan bahan makanan, sanitasi dapur, alat masak dan alat makan; standar bangunan, fasilitas dapur, dan pantry (termasuk makanan dari luar RS).","10·0",""],["b","Ada bukti pelaksanaan penyimpanan bahan makanan, pengolahan, pembagian/pemorsian, dan distribusi makanan sesuai peraturan perundang-undangan.","DOW","D: pemantauan suhu dan kelembapan. O: penyimpanan bahan makanan, pengolahan, pemorsian, dan distribusi.","10·5·0","Kepala/Staf Gizi"],["c","Ada bukti penyimpanan makanan dan produk nutrisi dengan memperhatikan kesehatan lingkungan meliputi sanitasi, suhu, pencahayaan, kelembapan, ventilasi, dan keamanan untuk mengurangi risiko infeksi.","DOW","D: pemantauan suhu dan kelembapan. O: penyimpanan makanan dan produk nutrisi.","10·5·0","Kepala/Staf Gizi"]],"bukti":["Kebijakan, pedoman, SPO gizi","Monitoring suhu chiller/freezer","Supervisi IPCN di dapur & pantry","Pemeriksaan kesehatan penjamah makanan"],"tip":"Pantry ruangan sering luput. Surveior bisa membuka kulkas ruangan dan menanyakan label tanggal pada makanan atau susu formula pasien."},
+{"id":"PPI 9","g":"I","judul":"Pengendalian mekanis-teknis dan ICRA konstruksi","std":"Rumah sakit menurunkan risiko infeksi pada fasilitas terkait pengendalian mekanis dan teknis serta saat pembongkaran, konstruksi, dan renovasi gedung.","mt":"Pengendalian mekanis dan teknis minimal untuk: ventilasi tekanan positif, biological safety cabinet, laminar airflow hood, termostat lemari pendingin, dan pemanas air sterilisasi alat dapur. ICRA konstruksi meliputi tipe proyek, kelompok risiko pasien, matriks kelas, tindakan pengendalian per kelas, dan pemantauan.","ep":[["a","Rumah sakit menerapkan pengendalian mekanis dan teknis (mechanical and engineering control) minimal untuk fasilitas a)–e) pada maksud dan tujuan.","OW","O: penerapan pengendalian mekanis dan teknis minimal untuk fasilitas a)–e).","10·5·0","IPCN; IPSRS; Kepala/Staf Unit terkait"],["b","Rumah sakit menerapkan penilaian risiko pengendalian infeksi (ICRA) yang minimal meliputi a)–f) pada maksud dan tujuan.","DW","Bukti ICRA yang minimal meliputi a)–f).","10·5·0","Komite/Tim PPI; IPCN; Bagian Umum"],["c","Rumah sakit telah melaksanakan ICRA pada semua renovasi, konstruksi, dan demolisi sesuai regulasi.","DW","Bukti ICRA pada semua renovasi, konstruksi, dan demolisi.","10·5·0","Komite/Tim PPI; IPCN; Bagian Umum"]],"bukti":["Checklist monev mechanical & engineering control","Formulir ICRA konstruksi","Izin kerja & monitoring renovasi","Laporan pelaksanaan"],"tip":"Bawa satu contoh ICRA renovasi yang lengkap dari awal sampai serah terima, termasuk foto barrier dan hasil pemantauan harian. EP b–c bisa tidak dapat diterapkan bila tidak ada renovasi."},
+{"id":"PPI 10","g":"J","judul":"Ruang imunokompromais, isolasi airborne, transfer","std":"Rumah sakit menyediakan APD untuk kewaspadaan (barrier precautions) dan prosedur isolasi penyakit menular, melindungi pasien imunokompromais, mentransfer pasien airborne di dalam dan keluar RS, serta menempatkannya dalam waktu singkat bila tidak ada kamar tekanan negatif.","mt":"Regulasi isolasi dan penghalang pengaman ditetapkan berdasarkan cara penularan penyakit, untuk pasien infeksius maupun imunosupresi, serta melindungi staf dan pengunjung. Pasien airborne ditempatkan di kamar tekanan negatif; bila tidak memungkinkan, udara dialirkan melalui filter HEPA minimal 12 kali pertukaran udara per jam. Kamar dibersihkan setiap hari dan setelah pasien pulang.","ep":[["a","Rumah sakit menyediakan dan menempatkan ruangan untuk pasien dengan imunitas rendah (immunocompromised) sesuai peraturan perundang-undangan.","OW","O: ketersediaan dan penempatan pasien immunocompromised.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["b","Rumah sakit melaksanakan proses transfer pasien airborne diseases di dalam dan keluar rumah sakit sesuai peraturan perundang-undangan, termasuk di ruang gawat darurat dan ruang lainnya.","OW","O: pelaksanaan transfer pasien airborne di dalam dan keluar RS, termasuk IGD dan ruang lain (lihat AKP 4).","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["c","Rumah sakit telah menempatkan pasien infeksi airborne dalam waktu singkat jika tidak mempunyai kamar bertekanan negatif sesuai peraturan perundang-undangan, termasuk di ruang gawat darurat dan ruang lainnya.","OW","O: ketersediaan ruang isolasi untuk pasien airborne dalam waktu singkat bila tidak ada kamar tekanan negatif, termasuk IGD dan ruang lain.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["d","Ada bukti pemantauan ruang tekanan negatif dan penempatan pasien secara rutin.","DOW","D: bukti pemantauan ruang tekanan negatif (hasil audit). O: ruang tekanan negatif.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"]],"bukti":["Pedoman & SPO isolasi","SPO transfer pasien airborne","Monitoring ruang tekanan negatif","Supervisi penempatan pasien"],"tip":"Surveior biasanya menelusuri satu kasus TB dari IGD sampai ruang isolasi: masker pasien, jalur transfer, dan pencatatan tekanan ruang. Latih petugas IGD menjelaskan alurnya."},
+{"id":"PPI 10.1","g":"J","judul":"Lonjakan (outbreak) penyakit airborne","std":"Rumah sakit mengembangkan dan menerapkan proses untuk menangani lonjakan mendadak (outbreak) penyakit infeksi airborne.","mt":"Proses meliputi deteksi, aktivasi tim, penambahan ruang isolasi (termasuk konversi ruang), logistik APD, dan edukasi staf.","ep":[["a","Rumah sakit menerapkan proses pengelolaan pasien bila terjadi ledakan pasien (outbreak) penyakit infeksi airborne.","RDW","R: regulasi pengelolaan pasien saat outbreak airborne. D: bukti penerapannya.","10·5·0","IPCN; Komite/Tim PPI"],["b","Rumah sakit menyediakan ruang isolasi dengan tekanan negatif bila terjadi ledakan pasien (outbreak) sesuai peraturan perundang-undangan.","OW","O: ruang isolasi tekanan negatif saat outbreak.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["c","Ada bukti dilakukan edukasi kepada staf tentang pengelolaan pasien infeksius jika terjadi ledakan pasien (outbreak) penyakit infeksi airborne.","DW","Bukti pelatihan staf tentang pengelolaan pasien infeksius saat outbreak airborne.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"]],"bukti":["Pedoman penanganan outbreak","Rencana kontinjensi ruang isolasi","Undangan, materi, daftar hadir edukasi"],"tip":"Pengalaman pandemi COVID-19 bisa dijadikan bukti nyata. Siapkan laporan pembelajaran dan rencana konversi ruang yang sudah diperbarui."},
+{"id":"PPI 11","g":"K","judul":"Kebersihan tangan","std":"Kebersihan tangan dengan sabun dan disinfektan adalah sarana efektif untuk mencegah dan mengendalikan infeksi.","mt":"RS menerapkan kapan (5 momen), di mana, dan bagaimana (6 langkah) melakukan hand wash dan hand rub, serta menyediakan fasilitasnya. Kepatuhan diukur sebagai Indikator Nasional Mutu.","ep":[["a","Rumah sakit telah menerapkan hand hygiene yang mencakup kapan, di mana, dan bagaimana melakukan cuci tangan dengan sabun (hand wash) dan/atau disinfektan (hand rub), serta ketersediaan fasilitas hand hygiene.","OWS","O: penerapan 5 momen hand hygiene. S: hand hygiene (lihat SKP 5).","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["b","Sabun, disinfektan, serta tisu/handuk sekali pakai tersedia di tempat cuci tangan dan tempat melakukan disinfeksi tangan.","OW","O: ketersediaan sabun, disinfektan, dan tisu/handuk sekali pakai.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["c","Ada bukti pelaksanaan pelatihan hand hygiene kepada semua pegawai termasuk tenaga kontrak.","DW","Bukti pelatihan hand hygiene kepada semua pegawai termasuk tenaga kontrak.","10·5·0","PPA; Staf non klinis"]],"bukti":["SPO kebersihan tangan","Audit kepatuhan 5 momen (INM)","Ceklis fasilitas HH","Sertifikat/materi pelatihan"],"tip":"Simulasi 6 langkah bisa diminta dari siapa saja, termasuk petugas kebersihan dan satpam. Pastikan tenaga kontrak masuk dalam daftar pelatihan."},
+{"id":"PPI 11.1","g":"K","judul":"Alat pelindung diri (APD)","std":"Sarung tangan, masker, pelindung mata, dan APD lainnya tersedia dan digunakan secara tepat apabila disyaratkan.","mt":"RS menetapkan jenis APD per area dan per tindakan, tempat penyediaan, serta pelatihan cara memakai dan melepas.","ep":[["a","Rumah sakit menerapkan penggunaan alat pelindung diri, tempat yang harus menyediakan APD, dan pelatihan cara memakainya.","DOW","D: bukti pelatihan cara pemakaian APD. O: tempat yang harus menyediakan APD.","10·5·0","PPA; Staf non klinis"],["b","Alat pelindung diri sudah digunakan secara tepat dan benar.","OWS","O: kepatuhan staf memakai APD secara tepat dan benar. S: penggunaan APD secara tepat dan benar.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["c","Ketersediaan alat pelindung diri sudah cukup sesuai regulasi.","OW","O: ketersediaan APD dalam jumlah yang cukup.","10·5·0","Komite/Tim PPI; IPCN; Kepala Unit/Ruangan"],["d","Ada bukti pelatihan penggunaan alat pelindung diri kepada semua pegawai termasuk tenaga kontrak.","DW","Bukti pelatihan penggunaan APD kepada semua pegawai termasuk tenaga kontrak.","10·5·0","Komite/Tim PPI; IPCN; Kepala/Staf Unit/Ruangan"]],"bukti":["Panduan penggunaan APD","Matriks APD per area","Audit kepatuhan APD","Stok & distribusi APD","Sertifikat pelatihan"],"tip":"Siapkan simulasi donning–doffing APD level airborne. Surveior memperhatikan urutan melepas dan kapan kebersihan tangan dilakukan."},
+{"id":"PPI 12","g":"L","judul":"Integrasi PPI dengan PMKP","std":"Kegiatan PPI diintegrasikan dengan program PMKP dengan indikator yang penting secara epidemiologis bagi rumah sakit.","mt":"Data surveilans dan indikator PPI masuk ke sistem manajemen data mutu. Komite/Tim PPI dan Komite Mutu bertemu berkala, dan hasil analisis serta rekomendasi PPI disampaikan setiap tiga bulan.","ep":[["a","Ada regulasi sistem manajemen data terintegrasi antara data surveilans dan data indikator mutu di Komite/Tim Penyelenggara Mutu.","R","Regulasi sistem manajemen data terintegrasi antara data surveilans dan data indikator mutu.","10·0",""],["b","Ada bukti pertemuan berkala antara Komite/Tim Penyelenggara Mutu dan Komite/Tim PPI untuk berkoordinasi dan didokumentasikan.","DW","Bukti pertemuan berkala Komite/Tim Mutu dan Komite/Tim PPI untuk berkoordinasi.","10·5·0","Komite/Tim Mutu; Komite/Tim PPI"],["c","Ada bukti penyampaian hasil analisis data dan rekomendasi Komite/Tim PPI kepada Komite/Tim Penyelenggara Mutu setiap tiga bulan.","DW","Bukti hasil analisis data dan rekomendasi Komite/Tim PPI kepada Komite/Tim Mutu setiap tiga bulan.","10·5·0","Komite/Tim Mutu; Komite/Tim PPI"]],"bukti":["Kebijakan manajemen data mutu","Undangan, notulen, daftar hadir rapat PPI–Mutu","Nota dinas laporan triwulan"],"tip":"Empat nota dinas triwulan dalam setahun dengan lampiran analisis adalah bukti paling ringkas untuk EP c."},
+{"id":"PPI 13","g":"M","judul":"Edukasi staf, pasien, keluarga, pengunjung","std":"Rumah sakit melakukan edukasi PPI kepada staf klinis dan nonklinis, pasien, keluarga, serta petugas lain yang terlibat dalam pelayanan.","mt":"Program mencakup orientasi pegawai baru, pelatihan berkala staf klinis dan nonklinis, serta edukasi pasien, keluarga, dan pengunjung.","ep":[["a","Rumah sakit menetapkan program pelatihan dan edukasi tentang PPI yang meliputi a)–e) pada maksud dan tujuan.","R","Penetapan program pelatihan dan edukasi PPI meliputi a)–e): orientasi pegawai baru, staf klinis berkala, staf nonklinis, pasien dan keluarga, pengunjung.","10·0",""],["b","Ada bukti pelaksanaan pelatihan untuk semua staf klinis dan nonklinis sebagai bagian dari orientasi pegawai baru tentang regulasi dan praktik program PPI.","D","Bukti pelatihan regulasi dan praktik program PPI untuk semua staf klinis dan nonklinis sebagai bagian orientasi pegawai baru.","10·5·0",""],["c","Ada bukti pelaksanaan edukasi untuk pasien, keluarga, dan pengunjung.","DW","Bukti edukasi untuk pasien/keluarga dan pengunjung (banner, flyer, materi, dokumentasi).","10·5·0","IPCN; Pasien/keluarga/pengunjung"]],"bukti":["Program diklat PPI","TOR, materi, daftar hadir, evaluasi","Sertifikat","Formulir edukasi pasien/keluarga"],"tip":"Surveior bisa bertanya ke keluarga pasien: kapan harus cuci tangan dan siapa yang mengajarkan. Edukasi di bedside perlu terdokumentasi."}];
+
+
+const REAL={"r-audit-kewaspadaan": {"t": "Form Audit Pelaksanaan Kewaspadaan Standar", "std": ["PPI 1.1"], "ep": "EP b", "file": "PPI_1.1_b_.Form_Audit_Pelaksanaan_Kewaspadaan_Standar.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp"], "dim": [935, 1210], "n": 4}, "r-supervisi-hcu": {"t": "Formulir Supervisi IPCN di Ruang High Care Unit", "std": ["PPI 1.1"], "ep": "EP b", "file": "FORMULIR_AUDIT_IPCN_DI_RUANG_HIGH_CARE_UNIT.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp"], "dim": [935, 1210], "n": 3}, "r-supervisi-bundle": {"t": "Formulir Supervisi Bundle HAIs (VAP, CAUTI, CLABSI, SSI)", "std": ["PPI 1.1"], "ep": "EP b", "file": "PPI_1.1_b_Formulir_Supervisi_Bundle_HAIs.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp"], "dim": [935, 1210], "n": 3}, "r-program-kerja": {"t": "Program Kerja Komite PPI Rumah Sakit", "std": ["PPI 2"], "ep": "EP a", "file": "PPI_2._PROGRAM_KERJA_KOMITE_PENCEGAHAN_DAN_PENGENDALIAN_INFEKSI.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp"], "dim": [935, 1210], "n": 4}, "r-program-icra": {"t": "Program PPI Berdasarkan Hasil Kajian ICRA", "std": ["PPI 3", "PPI 2"], "ep": "EP a", "file": "PPI_3_Program_PPI_ICRA.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp", "p8.webp", "p9.webp", "p10.webp", "p11.webp", "p12.webp", "p13.webp", "p14.webp", "p15.webp", "p16.webp", "p17.webp", "p18.webp"], "dim": [910, 1287], "n": 18}, "r-icra-prn": {"t": "ICRA Metode PRN — 11 Area PPI 3 (Excel)", "std": ["PPI 3"], "ep": "EP a", "file": "PPI_3_ICRA_PRN.xlsx", "ext": "xlsx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp", "p8.webp", "p9.webp", "p10.webp", "p11.webp", "p12.webp", "p13.webp", "p14.webp", "p15.webp", "p16.webp", "p17.webp", "p18.webp", "p19.webp", "p20.webp", "p21.webp", "p22.webp"], "dim": [1287, 910], "n": 22}, "r-risiko-infeksi": {"t": "Risiko Infeksi di Rumah Sakit", "std": ["PPI 3"], "ep": "EP a", "file": "PPI_3_RISIKO_INFEKSI_DI_RUMAH_SAKIT.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp"], "dim": [935, 1210], "n": 3}, "r-surveilans-area": {"t": "Form Surveilans PPI Area Fokus per Triwulan", "std": ["PPI 3"], "ep": "EP b", "file": "PPI_3_b_Surveilans_PPI_Area_Fokus.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [1210, 935], "n": 2}, "r-infeksi-virulen": {"t": "Pengertian Infeksi yang Virulen (Surveilans Poin e)", "std": ["PPI 3"], "ep": "EP b", "file": "PPI_3_EP_5_-_Pengertian.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-form-icra-tahunan": {"t": "Formulir ICRA Tahunan (Poin a–k)", "std": ["PPI 3"], "ep": "EP a", "file": "PPI_3_a_PENGKAJIAN_RISIKO_PENGENDALIAN_INFEKSI.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [1210, 935], "n": 2}, "r-icra-uraian": {"t": "Uraian ICRA: Tujuan, Proses, dan Penerapan", "std": ["PPI 3"], "ep": "EP a", "file": "PPI_3_ICRA_Uraian.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp"], "dim": [935, 1210], "n": 3}, "r-supervisi-steril": {"t": "Form Supervisi Proses Sterilisasi", "std": ["PPI 4"], "ep": "EP b", "file": "PPI_4_Form_Supervisi_Sterilisasi_RS.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-cssd-simak": {"t": "Instrumen Monitoring Pelayanan CSSD", "std": ["PPI 4"], "ep": "EP a–d", "file": "PPI_4_Daftar_Tilik_Monev_Yan_CSSD._DAy.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp", "p8.webp", "p9.webp", "p10.webp", "p11.webp"], "dim": [910, 1287], "n": 11}, "r-ceklis-reuse": {"t": "Ceklis Penggunaan Alat dan BMHP Reuse", "std": ["PPI 4.1"], "ep": "EP b", "file": "PPI_4.1_Ceklis_Alat_Reuse.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-pemantauan-reuse": {"t": "Form Pemantauan dan Evaluasi Reuse Alat/BMHP", "std": ["PPI 4.1"], "ep": "EP c", "file": "PPI_4.1_Form_Pemantauan_Reuse_Alat_BMHP.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-kriteria-reuse": {"t": "Kriteria Evaluasi Keamanan & Kelayakan Alat/BMHP Reuse", "std": ["PPI 4.1"], "ep": "EP b", "file": "PPI_4.1_Kriteria_Evaluasi_Keamanan_dan_Kelayakan_Alat_Medis_dan_BMHP_yang_Digunakan_Ulang.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [1210, 935], "n": 1}, "r-prosedur-bersih": {"t": "Prosedur Pembersihan dan Disinfeksi Permukaan & Lingkungan", "std": ["PPI 5"], "ep": "EP a", "file": "PPI_5_PROSEDUR_PEMBERSIHAN_DAN_DISINFEKSI_PERMUKAAN_DAN_LINGKUNGAN.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-checklist-bersih": {"t": "Checklist Pembersihan dan Disinfeksi Lingkungan (Harian)", "std": ["PPI 5"], "ep": "EP a", "file": "PPI_5_Checklist_Pembersihan_Disinfeksi_RS.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-pemantauan-bersih": {"t": "Checklist Pemantauan Proses Pembersihan dan Disinfeksi", "std": ["PPI 5"], "ep": "EP c", "file": "PPI_5_Checklist_Pemantauan_Pembersihan_RS.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-panduan-bersih": {"t": "Panduan Pembersihan dan Disinfeksi Lingkungan RS", "std": ["PPI 5"], "ep": "EP a, b", "file": "PPI_5_Panduan_Pembersihan_Disinfeksi_Lingkungan_RS_Bakti_KARS.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp", "p8.webp", "p9.webp", "p10.webp", "p11.webp", "p12.webp", "p13.webp", "p14.webp", "p15.webp", "p16.webp"], "dim": [910, 1287], "n": 16}, "r-audit-permukaan": {"t": "Form Audit Pengelolaan Permukaan", "std": ["PPI 5"], "ep": "EP c", "file": "PPI_5_FORM_AUDIT_PENGELOLAAN_PERMUKAAN.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp"], "dim": [935, 1210], "n": 4}, "r-tambahan-bersih": {"t": "Upaya Tambahan Pembersihan & Disinfeksi di Area Risiko Tinggi", "std": ["PPI 5"], "ep": "EP b", "file": "PPI_5_b_UPAYA_TAMBAHAN_PEMBERSIHAN_DAN_DISINFEKSI_DI_AREA_RISIKO_TINGGI.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-laundry-simak": {"t": "Instrumen Monitoring Pelayanan Laundry (Skor SIMAK)", "std": ["PPI 6"], "ep": "EP b–c", "file": "PPI_6_Audit__Yan_Laundry_Skor_SIMAK.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp", "p8.webp"], "dim": [910, 1287], "n": 8}, "r-supervisi-darah": {"t": "Ceklis Supervisi Penanganan & Pembuangan Darah", "std": ["PPI 7"], "ep": "EP b", "file": "PPI_7_b_Supervisi_Pembuangan_Darah.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-jenazah-simak": {"t": "Instrumen Monitoring Pelayanan Kamar Jenazah (SIMAK)", "std": ["PPI 7.1"], "ep": "EP b", "file": "PPI_7.1_Daftar_Tilik_Monev_Yan_Jenazah_SIMAK.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp", "p8.webp", "p9.webp", "p10.webp", "p11.webp", "p12.webp"], "dim": [910, 1287], "n": 12}, "r-supervisi-jenazah": {"t": "Supervisi Pengelolaan Kamar Jenazah", "std": ["PPI 7.1"], "ep": "EP c", "file": "PPI_7.1_c_Supervisi_Kamar_Jenazah.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-supervisi-tajam": {"t": "Supervisi Pengelolaan Benda Tajam dan Jarum oleh IPCN", "std": ["PPI 7.2"], "ep": "EP d", "file": "PPI_7.2_d_Form_Supervisi_Benda_Tajam_Jarum.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-icra-konstruksi": {"t": "ICRA Konstruksi dan Renovasi (Matriks Pencegahan)", "std": ["PPI 9"], "ep": "EP b–c", "file": "PPI_9_ICRA.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp", "p4.webp", "p5.webp", "p6.webp", "p7.webp"], "dim": [910, 1287], "n": 7}, "r-supervisi-tekneg": {"t": "Form Supervisi Ruang Tekanan Negatif & Pasien Immunocompromised", "std": ["PPI 10"], "ep": "EP a, d", "file": "PPI_10_d_Form_Supervisi_Tekanan_Negatif.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-sop-outbreak": {"t": "SOP Penanganan Pasien Penyakit Airborne saat Outbreak", "std": ["PPI 10.1"], "ep": "EP a", "file": "PPI_10.1_SOP_PENANGANAN_PASIEN_PENYAKIT_AIRBORNE_SAAT_OUTBREAK.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp", "p3.webp"], "dim": [935, 1210], "n": 3}, "r-triase-airborne": {"t": "Form Triase Pasien dengan Dugaan Penyakit Airborne", "std": ["PPI 10.1", "PPI 10"], "ep": "EP a", "file": "PPI_10.1_Triase_Pasien_Airborne.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-pedoman-outbreak": {"t": "Pedoman Penanganan Ledakan Pasien (Outbreak) Airborne", "std": ["PPI 10.1"], "ep": "EP a", "file": "PPI_10.1_Pedoman_Penanganan_Outbreak_Airborne.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-ceklis-outbreak": {"t": "Form Ceklis Outbreak Penyakit Infeksi Airborne", "std": ["PPI 10.1"], "ep": "EP a", "file": "PPI_10.1_Form_Ceklis_SOP_Outbreak_Airborne.docx", "ext": "docx", "pages": ["p1.webp"], "dim": [935, 1210], "n": 1}, "r-integrasi-data": {"t": "Bukti Pemenuhan EP a: Sistem Manajemen Data Terintegrasi", "std": ["PPI 12"], "ep": "EP a", "file": "PPI_12_a_Integrasi_Data.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}, "r-materi-pelatihan": {"t": "Materi Pelatihan dan Edukasi PPI", "std": ["PPI 13"], "ep": "EP a", "file": "PPI_13_Materi_Pelatihan_PPI.docx", "ext": "docx", "pages": ["p1.webp", "p2.webp"], "dim": [935, 1210], "n": 2}};
+const GC={A:"#FF5A4E",B:"#FF8A1F",C:"#F5B800",D:"#7BC043",E:"#14B8A6",F:"#0EA5E9",G:"#4F6BFF",H:"#8B5CF6",I:"#D946EF",J:"#EC4899",K:"#F43F5E",L:"#3B82F6",M:"#F97316"};
+const txtOn=h=>{const n=parseInt(h.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;return (r*299+g*587+b*114)/1000>165?"#1a1400":"#ffffff"};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const groupName=l=>GROUPS.find(g=>g[0]===l)[1];
+const realFor=id=>Object.entries(REAL).filter(([k,r])=>r.std.includes(id));
+const EVN={R:"Regulasi",D:"Dokumen",W:"Wawancara",O:"Observasi",S:"Simulasi"};
+let fGroup=null,fSesi=null,query="",openIdx=-1,lastFocus=null;
+
+/* hero */
+$("#hijo").innerHTML="HIJO".split("").map((c,i)=>`<span style="color:${["#16A866","#FF8A00","#FF4D5E","#4F6BFF"][i]}">${c}</span>`).join("");
+$("#mosaic").innerHTML=GROUPS.map(([l,t])=>`<button class="tile" data-g="${l}" style="background:${GC[l]};color:${txtOn(GC[l])}" aria-label="Fokus ${l}: ${esc(t)}"><span class="L">${l}</span><span class="T">${esc(t)}</span></button>`).join("")
+  +`<div class="tile info"><span class="L">${STD.length}</span><span class="T">standar</span></div><div class="tile info"><span class="L">${STD.reduce((a,s)=>a+s.ep.length,0)}</span><span class="T">elemen penilaian</span></div><div class="tile info"><span class="L" id="docCount">${Object.keys(REAL).length}</span><span class="T">contoh dokumen</span></div>`;
+$("#mosaic").addEventListener("click",e=>{const t=e.target.closest(".tile[data-g]");if(!t)return;fGroup=t.dataset.g;fSesi=null;render();jump()});
+$("#sesi").innerHTML=SESI.map(s=>`<button class="sbtn" data-s="${s.n}" aria-pressed="false"><b>${s.n}</b>${esc(s.t.replace(" dalam Standar Akreditasi","").replace(" saat Akreditasi",""))}</button>`).join("");
+$("#sesi").addEventListener("click",e=>{const b=e.target.closest(".sbtn");if(!b)return;const n=+b.dataset.s;fSesi=fSesi===n?null:n;fGroup=null;render();jump()});
+function jump(){document.querySelector(".tools").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"})}
+$("#chips").innerHTML=`<button class="chip all" data-g="" aria-pressed="true">Semua</button>`+GROUPS.map(([l,t])=>`<button class="chip" data-g="${l}" aria-pressed="false"><i style="background:${GC[l]};color:${txtOn(GC[l])}">${l}</i>${esc(t)}</button>`).join("");
+$("#chips").addEventListener("click",e=>{const c=e.target.closest(".chip");if(!c)return;fGroup=c.dataset.g||null;fSesi=null;render()});
+$("#q").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();render()});
+
+function filtered(){
+  return STD.filter(s=>{
+    if(fGroup&&s.g!==fGroup)return false;
+    if(fSesi){const ss=SESI[fSesi-1].s;if(ss!=="all"&&!ss.includes(s.id))return false}
+    if(query){const hay=(s.id+" "+s.judul+" "+s.std+" "+s.mt+" "+s.bukti.join(" ")+" "+s.ep.map(e=>e[1]).join(" ")+" "+groupName(s.g)+" "+docsFor(s.id).map(d=>d.t+" "+(d.file||"")).join(" ")).toLowerCase();
+      if(!query.split(/\s+/).every(w=>hay.includes(w)))return false}
+    return true});
+}
+function render(){
+  document.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String((c.dataset.g||null)===fGroup&&!fSesi||(!c.dataset.g&&!fGroup&&!fSesi))));
+  document.querySelectorAll(".sbtn").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.s===fSesi)));
+  const list=filtered();
+  $("#lh").textContent=fGroup?`Fokus ${fGroup} · ${groupName(fGroup)}`:fSesi?`Materi ${fSesi}`:query?"Hasil pencarian":"Semua standar";
+  $("#lsub").textContent=fSesi?SESI[fSesi-1].t:`${list.length} standar · klik untuk melihat contoh dokumen, elemen penilaian, dan tips telusur.`;
+  $("#cards").innerHTML=list.length?list.map(s=>{const d=docsFor(s.id),c=GC[s.g];
+    return `<button class="card" data-id="${s.id}" style="--gc:${c}">
+      <span class="chead"><span class="blk" style="background:${c};color:${txtOn(c)}">${s.g}</span><span class="ctxt"><span class="code">${s.id}</span><b>${esc(s.judul)}</b></span></span>
+      <span class="stack">${d.length?`<span class="thumbs">${d.slice(0,3).map(x=>x.orig?(k=>`<img src="real/${k}/thumb.webp" alt="" loading="lazy" decoding="async" width="46" height="62">`)(x.orig):`<span class="ph" style="background:${EXTC[x.ext]||"#6B7280"}">${extLbl(x.ext)}</span>`).join("")}</span><span class="badge">${d.length} contoh${d.some(x=>x.up||x.rev)?" · ✎":""}</span>`:`<span class="badge none">Belum ada contoh</span>`}<span class="ep">${s.ep.length} EP</span></span></button>`}).join("")
+    :`<div class="empty">Tidak ada standar yang cocok. Coba kata kunci lain atau pilih "Semua".</div>`;
+}
+function updateCounts(){const n=Object.keys(REAL).length+UP.filter(u=>u.kind==="add").length;$("#stat").innerHTML=`<b>${STD.length}</b>standar · <b>${n}</b>dokumen`;const dc=$("#docCount");if(dc)dc.textContent=n}
+
+/* preload pages of a standard's documents (makes the viewer instant) */
+const warmed=new Set();
+function warm(id,deep){realFor(id).filter(([k])=>!latestRev(k)).forEach(([k,r])=>{const n=deep?r.pages.length:Math.min(2,r.pages.length);for(let i=0;i<n;i++){const u=`real/${k}/${r.pages[i]}`;if(warmed.has(u))continue;warmed.add(u);const im=new Image();im.decoding="async";im.src=u}})}
+$("#cards").addEventListener("pointerenter",e=>{const c=e.target.closest&&e.target.closest(".card");if(c)warm(c.dataset.id,false)},true);
+$("#cards").addEventListener("click",e=>{const c=e.target.closest(".card");if(c){lastFocus=c;openStd(STD.findIndex(s=>s.id===c.dataset.id))}});
+
+/* drawer */
+function openStd(i){
+  openIdx=i;const s=STD[i],c=GC[s.g];upState=null;
+  warm(s.id,false);
+  const dr=$("#drawer");dr.style.setProperty("--gc",c);dr.style.setProperty("--gt",txtOn(c));dr.style.setProperty("--gc2",txtOn(c)==="#ffffff"?c:"#9A6B00");
+  $("#dcode").textContent=`${s.id} · Fokus ${s.g}`;$("#dtitle").textContent=s.judul;$("#dgrp").textContent=groupName(s.g);
+  $("#dbody").innerHTML=`
+   <div class="sec" id="docSec">${docsSection(s)}</div>
+   <div class="sec"><div class="statement"><b>Standar ${s.id}.</b> ${esc(s.std)}</div></div>
+   <div class="sec"><h3>Maksud dan tujuan</h3><p>${esc(s.mt)}</p></div>
+   <div class="sec"><h3>Elemen penilaian <span class="n">${s.ep.length}</span></h3>
+     <ul class="eps">${s.ep.map(([k,t,ev,bk,sk,w])=>`<li><span class="k" style="background:${c};color:${txtOn(c)}">${k}</span><div>${esc(t)}<div class="ev">${"RDWOS".split("").map(x=>`<i class="${ev.includes(x)?"on":""}" title="${EVN[x]}">${x}</i>`).join("")}${sk?`<i class="sk" title="Skoring">Skor ${esc(sk)}</i>`:""}</div>${bk?`<div class="kb"><b>Kelengkapan bukti:</b> ${esc(bk)}</div>`:""}${w?`<div class="kb"><b>Wawancara:</b> ${esc(w)}</div>`:""}</div></li>`).join("")}</ul>
+     <div class="legend">R regulasi · D dokumen · W wawancara · O observasi · S simulasi. Huruf yang menyala menunjukkan cara pembuktian yang lazim diminta.</div></div>
+   <div class="sec"><h3>Dokumen bukti yang disiapkan</h3><div class="bukti">${s.bukti.map(b=>`<span>${esc(b)}</span>`).join("")}</div></div>
+   <div class="sec"><h3>Tips telusur</h3><div class="tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg><div>${esc(s.tip)}</div></div></div>
+`;
+  $("#prev").disabled=i===0;$("#next").disabled=i===STD.length-1;
+  $("#scrim").hidden=false;dr.hidden=false;$("#dbody").scrollTop=0;document.body.style.overflow="hidden";$("#close").focus();
+  setTimeout(()=>warm(s.id,true),400);
+}
+function closeStd(){$("#drawer").hidden=true;$("#scrim").hidden=true;document.body.style.overflow="";openIdx=-1;if(lastFocus)try{lastFocus.focus()}catch(e){}}
+$("#close").onclick=closeStd;$("#scrim").onclick=closeStd;
+$("#prev").onclick=()=>openIdx>0&&openStd(openIdx-1);
+$("#next").onclick=()=>openIdx<STD.length-1&&openStd(openIdx+1);
+$("#dbody").addEventListener("click",e=>{
+  const rv=e.target.closest(".revb");if(rv){openUpForm("rev",rv.dataset.rev);return}
+  if(e.target.closest("#addDoc")){openUpForm("add");return}
+  const d=e.target.closest(".doc");if(d){openKey(d.dataset.key,docsFor(STD[openIdx].id).map(x=>x.key))}});
+
+/* downloads */
+let dl=null,cur=null;
+function saveFile(path,name,msgEl){const a=document.createElement("a");a.href=path;a.download=name;document.body.appendChild(a);a.click();a.remove();if(msgEl)msgEl.textContent="Mengunduh "+name+"…"}
+$("#zipreal").hidden=false;
+$("#zipreal").onclick=()=>saveFile("files/semua-dokumen.zip","Contoh Dokumen PPI STARKES - Rumah HIJO.zip",null);
+
+/* viewer */
+let curURL=null,curList=[];
+function showViewer(title,sub,html){$("#vtitle").textContent=title;$("#vsub").textContent=sub||"";$("#vbody").innerHTML=html;$("#viewer").hidden=false;$("#vbody").scrollTop=0;$("#vclose").focus()}
+let zoom=1,zmode="fit",curDim=[900,1270];
+function baseW(){return Math.min(900,$("#vbody").clientWidth-24)}
+function applyZoom(keepCenter){
+  const vb=$("#vbody"),pg=vb.querySelector(".pages,.hpages");if(!pg)return;
+  if(pg.classList.contains("hpages")){
+    if(!pg.dataset.nw){pg.style.zoom=1;pg.dataset.nw=Math.max(1,pg.scrollWidth)}
+    const nw=+pg.dataset.nw,avail=vb.clientWidth-24;
+    if(zmode==="fitw"||zmode==="fitp")zoom=avail/nw;
+    pg.style.zoom=zoom;$("#zl").textContent=Math.round(zoom*100)+"%";
+    $("#zfitw").classList.toggle("on",zmode!=="free");$("#zfitp").classList.toggle("on",false);
+    vb.classList.toggle("grab",vb.scrollWidth>vb.clientWidth+2);return}
+  const cx=(vb.scrollLeft+vb.clientWidth/2)/Math.max(1,vb.scrollWidth),cy=(vb.scrollTop+vb.clientHeight/2)/Math.max(1,vb.scrollHeight);
+  let w;
+  if(zmode==="fitw"){w=vb.clientWidth-24;zoom=w/baseW()}
+  else if(zmode==="fitp"){w=(vb.clientHeight-40)*curDim[0]/curDim[1];zoom=w/baseW()}
+  else w=baseW()*zoom;
+  pg.style.setProperty("--pw",Math.round(w)+"px");
+  $("#zl").textContent=Math.round(zoom*100)+"%";
+  $("#zfitw").classList.toggle("on",zmode==="fitw");$("#zfitp").classList.toggle("on",zmode==="fitp");
+  vb.classList.toggle("grab",vb.scrollWidth>vb.clientWidth+2);
+  if(keepCenter){vb.scrollLeft=cx*vb.scrollWidth-vb.clientWidth/2;vb.scrollTop=cy*vb.scrollHeight-vb.clientHeight/2}
+}
+function setZoom(z,mode){zmode=mode||"free";zoom=Math.max(.4,Math.min(4,z));applyZoom(true)}
+$("#zin").onclick=()=>setZoom(zoom*1.25);
+$("#zout").onclick=()=>setZoom(zoom/1.25);
+$("#zfitw").onclick=()=>{zmode="fitw";applyZoom(false)};
+$("#zfitp").onclick=()=>{zmode="fitp";applyZoom(false)};
+window.addEventListener("resize",()=>{if(!$("#viewer").hidden)applyZoom(true)});
+(()=>{const vb=$("#vbody");let drag=null;
+  vb.addEventListener("wheel",e=>{if(!e.ctrlKey||$("#viewer").hidden)return;e.preventDefault();setZoom(zoom*(e.deltaY<0?1.12:1/1.12))},{passive:false});
+  vb.addEventListener("dblclick",e=>{const img=e.target.closest(".page");if(!img)return;
+    const r=img.getBoundingClientRect(),fx=(e.clientX-r.left)/r.width,fy=(e.clientY-r.top)/r.height;
+    const target=zoom<1.6?2.2:1;zmode="free";zoom=target;applyZoom(false);
+    const r2=img.getBoundingClientRect();vb.scrollLeft+=r2.left+fx*r2.width-vb.getBoundingClientRect().left-vb.clientWidth/2;vb.scrollTop+=r2.top+fy*r2.height-vb.getBoundingClientRect().top-vb.clientHeight/2});
+  vb.addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse"||e.button!==0||vb.scrollWidth<=vb.clientWidth+2)return;drag={x:e.clientX,y:e.clientY,l:vb.scrollLeft,t:vb.scrollTop};vb.classList.add("grabbing")});
+  window.addEventListener("pointermove",e=>{if(!drag)return;vb.scrollLeft=drag.l-(e.clientX-drag.x);vb.scrollTop=drag.t-(e.clientY-drag.y)});
+  window.addEventListener("pointerup",()=>{drag=null;vb.classList.remove("grabbing")});
+  let pinch=null;
+  vb.addEventListener("touchstart",e=>{if(e.touches.length===2){const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);pinch={d,z:zoom}}},{passive:true});
+  vb.addEventListener("touchmove",e=>{if(pinch&&e.touches.length===2){e.preventDefault();const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);zmode="free";zoom=Math.max(.4,Math.min(4,pinch.z*d/pinch.d));applyZoom(true)}},{passive:false});
+  vb.addEventListener("touchend",()=>{pinch=null});
+})();
+function openReal(k,list,keyForList){
+  const r=REAL[k];cur="r:"+k;curKey=keyForList||k;$("#vmsg").textContent="";viewerButtons(null,k);
+  curList=list||(openIdx>=0?docsFor(STD[openIdx].id).map(x=>x.key):[k]);
+  const pos=curList.indexOf(curKey);$("#vprev").disabled=pos<=0;$("#vnext").disabled=pos<0||pos>=curList.length-1;$("#vprev").hidden=$("#vnext").hidden=curList.length<2;
+  $("#vdl").textContent=r.ext==="xlsx"?"⬇ Unduh Excel":"⬇ Unduh Word";$("#vdl").hidden=false;
+  const [w,h]=r.dim;curDim=r.dim;
+  showViewer(r.t,`${r.file} · ${r.n} halaman${curList.length>1?` · ${pos+1}/${curList.length}`:""}`,
+    `<div class="pages">${r.pages.map((p,i)=>`<img class="page" src="real/${k}/${p}" width="${w}" height="${h}" alt="${esc(r.t)}, halaman ${i+1}" loading="${i<2?"eager":"lazy"}" decoding="async" ${i===0?'fetchpriority="high"':""}>`).join("")}<p class="vnote">Pratinjau halaman. Unduh file aslinya untuk mengedit di Word/Excel.</p></div>`);
+  if(zmode==="free")zoom=1;
+  requestAnimationFrame(()=>applyZoom(false));
+  const hint=$("#vhint");hint.hidden=false;clearTimeout(hint._t);hint._t=setTimeout(()=>hint.hidden=true,3500);
+}
+$("#vprev").onclick=()=>{const p=curList.indexOf(curKey);if(p>0)openKey(curList[p-1],curList)};
+$("#vnext").onclick=()=>{const p=curList.indexOf(curKey);if(p>=0&&p<curList.length-1)openKey(curList[p+1],curList)};
+$("#vdl").onclick=()=>{if(cur&&cur.startsWith("r:")){const k=cur.slice(2);saveFile(`files/${k}.${REAL[k].ext}`,REAL[k].file,$("#vmsg"))}else if(cur&&cur.startsWith("u:")){const u=UP.find(x=>x.id===cur.slice(2));if(u)blobOf(u).then(b=>saveBlob(b,u.name,$("#vmsg"))).catch(()=>$("#vmsg").textContent="File tidak bisa dimuat.")}};
+function closeViewer(){cur=null;curKey=null;$("#viewer").hidden=true;$("#vbody").innerHTML="";if(curURL){URL.revokeObjectURL(curURL);curURL=null}}
+$("#vclose").onclick=closeViewer;
+/* presentation mode */
+let pList=[],pIdx=0;
+function startPresent(fromId){
+  pList=filtered();if(!pList.length)pList=STD.slice();
+  pIdx=Math.max(0,fromId?pList.findIndex(s=>s.id===fromId):0);
+  if(fromId&&pIdx<0){pList=STD.slice();pIdx=STD.findIndex(s=>s.id===fromId)}
+  $("#pres").hidden=false;document.body.style.overflow="hidden";
+  $("#dots").innerHTML=pList.map((s,i)=>`<button data-i="${i}" title="${s.id}" aria-label="Ke ${s.id}"></button>`).join("");
+  renderSlide();$("#pnext").focus();
+  const el=document.documentElement;if(el.requestFullscreen&&!document.fullscreenElement)el.requestFullscreen().catch(()=>{});
+}
+function renderSlide(){
+  const s=pList[pIdx],c=GC[s.g],docs=docsFor(s.id);
+  $("#pres").style.setProperty("--gc",c);
+  $("#pmain").innerHTML=`<div class="slide">
+    <div class="sl-left">
+      <span class="sl-tag"><span class="blk" style="background:${c};color:${txtOn(c)}">${s.g}</span>${s.id} · ${esc(groupName(s.g))}</span>
+      <h2 class="sl-title">${esc(s.judul)}</h2>
+      <div class="sl-std">${esc(s.std)}</div>
+      <ul class="sl-eps">${s.ep.map(([k,t])=>`<li><span class="k" style="background:${c};color:${txtOn(c)}">${k}</span><span>${esc(t)}</span></li>`).join("")}</ul>
+    </div>
+    <div class="sl-right">
+      <span class="sl-h">Contoh dokumen · ${docs.length}</span>
+      ${docs.length?`<div class="sl-docs">${docs.map(x=>`<button class="sl-doc" data-key="${x.key}">${x.orig?(k=>`<span class="pv"><img src="real/${k}/thumb.webp" alt="" decoding="async"></span>`)(x.orig):`<span class="pv ph" style="--phc:${EXTC[x.ext]||"#6B7280"}"><span class="big">${extLbl(x.ext)}</span></span>`}<b>${esc(x.t)}</b><small>${x.rev?"Revisi · ":x.up?"Tambahan · ":""}${esc(x.ep||"")}${x.n?` · ${x.n} hlm`:""}</small></button>`).join("")}</div>`:`<div class="sl-none">Belum ada contoh dokumen untuk standar ini.</div>`}
+      <span class="sl-h">Tips telusur</span><div class="sl-tip"><b>Saat survei:</b> ${esc(s.tip)}</div>
+    </div></div>`;
+  $("#pmain").scrollTop=0;
+  $("#pcount").textContent=`${pIdx+1} / ${pList.length}`;
+  $("#pprev").disabled=pIdx===0;$("#pnext").disabled=pIdx===pList.length-1;
+  document.querySelectorAll("#dots button").forEach((b,i)=>{b.className=i===pIdx?"on":i<pIdx?"done":"";b.style.background=i===pIdx?GC[pList[i].g]:""});
+  warm(s.id,false);if(pList[pIdx+1])warm(pList[pIdx+1].id,false);
+}
+function pGo(d){const n=pIdx+d;if(n>=0&&n<pList.length){pIdx=n;renderSlide()}}
+function stopPresent(){$("#pres").hidden=true;if($("#drawer").hidden)document.body.style.overflow="";if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{})}
+$("#present").onclick=()=>startPresent(null);
+$("#dpresent").onclick=()=>{const id=STD[openIdx].id;closeStd();startPresent(id)};
+$("#pprev").onclick=()=>pGo(-1);$("#pnext").onclick=()=>pGo(1);$("#pexit").onclick=stopPresent;
+$("#pfull").onclick=()=>{const el=document.documentElement;if(document.fullscreenElement){document.exitFullscreen&&document.exitFullscreen().catch(()=>{})}else if(el.requestFullscreen){el.requestFullscreen().catch(()=>{$("#pfull").textContent="Layar penuh tidak tersedia"})}};
+$("#dots").addEventListener("click",e=>{const b=e.target.closest("button");if(b){pIdx=+b.dataset.i;renderSlide()}});
+$("#pmain").addEventListener("click",e=>{const d=e.target.closest(".sl-doc");if(d)openKey(d.dataset.key,docsFor(pList[pIdx].id).map(x=>x.key))});
+
+document.addEventListener("keydown",e=>{
+  const inInput=/INPUT|TEXTAREA/.test(document.activeElement.tagName);
+  const nextK=["ArrowRight","PageDown"].includes(e.key),prevK=["ArrowLeft","PageUp"].includes(e.key);
+  if(!$("#themePop").hidden&&e.key==="Escape"){toggleTheme(false);return}
+  if(!$("#viewer").hidden){
+    if(e.key==="Escape"){closeViewer();return}
+    if(inInput)return;
+    if(nextK){e.preventDefault();$("#vnext").click()}if(prevK){e.preventDefault();$("#vprev").click()}
+    if(e.key==="+"||e.key==="="){setZoom(zoom*1.25)}if(e.key==="-"){setZoom(zoom/1.25)}if(e.key==="0"){zmode="fitw";applyZoom(false)}
+    return}
+  if(!$("#pres").hidden){
+    if(e.key==="Escape"){if(!document.fullscreenElement)stopPresent();return}
+    if(nextK||e.key===" "){e.preventDefault();pGo(1)}if(prevK){e.preventDefault();pGo(-1)}
+    if(e.key==="Home")pIdx=0,renderSlide();if(e.key==="End")pIdx=pList.length-1,renderSlide();
+    return}
+  if(!$("#drawer").hidden){if(e.key==="Escape")closeStd();if(!inInput&&e.key==="ArrowRight")$("#next").click();if(!inInput&&e.key==="ArrowLeft")$("#prev").click()}
+});
+
+/* ===== ALAT PRESENTASI: pointer, stabilo, layar hitam ===== */
+const PT={mode:null,col:"hl",strokes:[],cur:null,trail:[],raf:0};
+const INK={hl:{c:"#FFE14D",w:22,a:.38},red:{c:"#FF2D3B",w:4,a:1},green:{c:"#16C172",w:4,a:1}};
+function ptActive(){return !$("#viewer").hidden||!$("#pres").hidden}
+function ptSync(){
+  const on=ptActive();$("#ptools").hidden=!on;document.body.classList.toggle("in-pres",!$("#pres").hidden&&$("#viewer").hidden);
+  if(!on&&PT.mode)ptMode(null);if(!on)ptClear();
+}
+function ptSize(){for(const id of["inkc","trailc"]){const c=$("#"+id),d=devicePixelRatio||1;c.width=innerWidth*d;c.height=innerHeight*d;c.getContext("2d").setTransform(d,0,0,d,0,0)}ptRedraw()}
+function ptRedraw(){const c=$("#inkc"),x=c.getContext("2d");x.clearRect(0,0,innerWidth,innerHeight);
+  for(const st of PT.strokes.concat(PT.cur?[PT.cur]:[])){const k=INK[st.col];if(st.p.length<1)continue;x.save();x.globalAlpha=k.a;x.strokeStyle=k.c;x.lineWidth=k.w;x.lineCap=st.col==="hl"?"square":"round";x.lineJoin="round";if(st.col==="hl")x.globalCompositeOperation="multiply";
+    x.beginPath();x.moveTo(st.p[0][0],st.p[0][1]);for(let i=1;i<st.p.length;i++)x.lineTo(st.p[i][0],st.p[i][1]);if(st.p.length===1)x.lineTo(st.p[0][0]+.1,st.p[0][1]);x.stroke();x.restore()}
+  $("#inkc").hidden=!(PT.mode==="ink"||PT.strokes.length);
+}
+function ptClear(){PT.strokes=[];PT.cur=null;ptRedraw()}
+function ptMode(m){
+  PT.mode=PT.mode===m?null:m;
+  $("#ptLaser").setAttribute("aria-pressed",String(PT.mode==="laser"));$("#ptInk").setAttribute("aria-pressed",String(PT.mode==="ink"));
+  $("#pcols").hidden=PT.mode!=="ink";$("#ptools").classList.toggle("act",!!PT.mode);
+  document.documentElement.classList.toggle("laser",PT.mode==="laser");
+  $("#inkc").classList.toggle("on",PT.mode==="ink");
+  $("#trailc").hidden=PT.mode!=="laser";if(PT.mode!=="laser"){$("#ldot").hidden=true;PT.trail=[]}
+  ptRedraw();
+}
+function ptTrail(){const c=$("#trailc"),x=c.getContext("2d"),now=performance.now();x.clearRect(0,0,innerWidth,innerHeight);
+  PT.trail=PT.trail.filter(t=>now-t[2]<260);
+  for(let i=1;i<PT.trail.length;i++){const a=PT.trail[i-1],b=PT.trail[i],f=1-(now-b[2])/260;x.strokeStyle=`rgba(255,45,59,${.5*f})`;x.lineWidth=10*f+1;x.lineCap="round";x.beginPath();x.moveTo(a[0],a[1]);x.lineTo(b[0],b[1]);x.stroke()}
+  PT.raf=PT.trail.length?requestAnimationFrame(ptTrail):0}
+addEventListener("pointermove",e=>{
+  if(PT.mode!=="laser")return;
+  const overTools=e.target.closest&&e.target.closest("#ptools");const d=$("#ldot");d.hidden=!!overTools;
+  d.style.transform=`translate(${e.clientX}px,${e.clientY}px)`;
+  if(!overTools){PT.trail.push([e.clientX,e.clientY,performance.now()]);if(!PT.raf)PT.raf=requestAnimationFrame(ptTrail)}
+},{passive:true});
+document.addEventListener("pointerleave",()=>{$("#ldot").hidden=true});
+(()=>{const c=$("#inkc");
+  c.addEventListener("pointerdown",e=>{if(PT.mode!=="ink")return;e.preventDefault();c.setPointerCapture(e.pointerId);PT.cur={col:PT.col,p:[[e.clientX,e.clientY]]};ptRedraw()});
+  c.addEventListener("pointermove",e=>{if(!PT.cur)return;const ev=e.getCoalescedEvents?e.getCoalescedEvents():[e];for(const q of ev)PT.cur.p.push([q.clientX,q.clientY]);ptRedraw()});
+  const end=()=>{if(PT.cur){PT.strokes.push(PT.cur);PT.cur=null;ptRedraw()}};
+  c.addEventListener("pointerup",end);c.addEventListener("pointercancel",end);
+  c.addEventListener("wheel",e=>{const t=!$("#viewer").hidden?$("#vbody"):$("#pmain");if(t)t.scrollBy({top:e.deltaY,left:e.deltaX})},{passive:true});
+})();
+["vbody","pmain"].forEach(id=>{const el=$("#"+id);if(el)el.addEventListener("scroll",()=>{if(PT.strokes.length&&!PT.cur)ptClear()},{passive:true})});
+function ptBlank(white){const b=$("#blank");if(!b.hidden){b.hidden=true;return}b.classList.toggle("white",!!white);b.hidden=false}
+$("#blank").addEventListener("click",()=>{$("#blank").hidden=true});
+$("#ptLaser").onclick=()=>ptMode("laser");$("#ptInk").onclick=()=>ptMode("ink");$("#ptClear").onclick=ptClear;$("#ptBlack").onclick=()=>ptBlank(false);
+$("#pcols").addEventListener("click",e=>{const b=e.target.closest(".pc");if(!b)return;PT.col=b.dataset.c;document.querySelectorAll(".pc").forEach(x=>x.setAttribute("aria-pressed",String(x===b)))});
+addEventListener("resize",ptSize);ptSize();
+new MutationObserver(ptSync).observe($("#viewer"),{attributes:true,attributeFilter:["hidden"]});
+new MutationObserver(ptSync).observe($("#pres"),{attributes:true,attributeFilter:["hidden"]});
+new MutationObserver(()=>{if(PT.strokes.length)ptClear()}).observe($("#pmain"),{childList:true});
+new MutationObserver(()=>{if(PT.strokes.length)ptClear()}).observe($("#vbody"),{childList:true});
+document.addEventListener("keydown",e=>{
+  if(!$("#blank").hidden){e.preventDefault();e.stopImmediatePropagation();$("#blank").hidden=true;return}
+  if(!ptActive()||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)||e.ctrlKey||e.metaKey||e.altKey)return;
+  const k=e.key.toLowerCase();
+  if(e.key==="Escape"&&PT.mode){e.preventDefault();e.stopImmediatePropagation();ptMode(PT.mode);return}
+  if(k==="l"){e.preventDefault();ptMode("laser")}
+  else if(k==="s"){e.preventDefault();ptMode("ink")}
+  else if(k==="e"){e.preventDefault();ptClear()}
+  else if(k==="b"||k==="."){e.preventDefault();ptBlank(false)}
+  else if(k==="w"||k===","){e.preventDefault();ptBlank(true)}
+  else if(PT.mode==="ink"&&["1","2","3"].includes(k)){const b=document.querySelectorAll(".pc")[+k-1];b&&b.click()}
+},true);
+
+/* ===== GAYA TAMPILAN ===== */
+const STYLES=[
+  {k:"ceria",n:"Ceria",d:"Krem pastel dengan gelembung warna-warni. Hangat dan ramah.",sw:["#FFF4E6","#FFC9DA","#FFE69A","#FF5A4E"],tc:"#FFB547"},
+  {k:"klinis",n:"Klinis",d:"Putih bersih dengan toska dan biru. Tenang dan profesional.",sw:["#FFFFFF","#C3EEE8","#14B8A6","#38BDF8"],tc:"#0E9F9A"},
+  {k:"malam",n:"Malam",d:"Biru malam dengan aksen emas. Nyaman di ruangan redup.",sw:["#12152F","#1C2045","#FFB020","#4F6BFF"],tc:"#12152F"}];
+function curStyle(){return document.documentElement.getAttribute("data-style")||"ceria"}
+function setStyle(k,save){
+  document.documentElement.setAttribute("data-style",k);
+  const st=STYLES.find(x=>x.k===k);const m=document.querySelector('meta[name="theme-color"]');if(m&&st)m.setAttribute("content",st.tc);
+  document.querySelectorAll(".topt").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.k===k)));
+  if(save)try{localStorage.setItem("rh-style",k)}catch(e){}
+}
+$("#themeOpts").innerHTML=STYLES.map(x=>`<button class="topt" data-k="${x.k}" aria-pressed="false"><span class="sw">${x.sw.map(c=>`<i style="background:${c}"></i>`).join("")}</span><span><b>${x.n}</b><small>${x.d}</small></span></button>`).join("");
+function toggleTheme(open){const p=$("#themePop");p.hidden=!open;$("#themeBtn").setAttribute("aria-expanded",String(open));if(open){const a=p.querySelector('[aria-pressed="true"]')||p.querySelector(".topt");a&&a.focus()}}
+$("#themeBtn").onclick=e=>{e.stopPropagation();toggleTheme($("#themePop").hidden)};
+$("#themeOpts").addEventListener("click",e=>{const b=e.target.closest(".topt");if(!b)return;setStyle(b.dataset.k,true);toast(`Gaya "${STYLES.find(x=>x.k===b.dataset.k).n}" dipakai`)});
+document.addEventListener("click",e=>{if(!$("#themePop").hidden&&!e.target.closest("#themePop")&&!e.target.closest("#themeBtn"))toggleTheme(false)});
+setStyle(curStyle(),false);
+
+/* ===== TOAST ===== */
+function toast(t){const el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(el._t);el._t=setTimeout(()=>el.hidden=true,3200)}
+
+/* ===== DOKUMEN UNGGAHAN (tambah & revisi) ===== */
+const MIME={docx:"application/vnd.openxmlformats-officedocument.wordprocessingml.document",xlsx:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",pdf:"application/pdf",png:"image/png",jpg:"image/jpeg",jpeg:"image/jpeg"};
+const EXTC={docx:"#2B5CD8",xlsx:"#1D7A46",pdf:"#D93025",png:"#6B7280",jpg:"#6B7280",jpeg:"#6B7280"};
+const extLbl=x=>({jpeg:"JPG",jpg:"JPG",png:"PNG"}[x]||String(x||"").toUpperCase());
+const extOf=n=>(String(n).split(".").pop()||"").toLowerCase();
+const ACCEPT=".docx,.xlsx,.pdf,.png,.jpg,.jpeg";
+let UP=[],localRecs=[],sharedRecs=[],upState=null,curKey=null;
+const shared={assets:null,db:null};
+const SHARED_COL="rh/docs/uploads";
+function latestRev(slug){let b=null;for(const u of UP)if(u.kind==="rev"&&u.target===slug&&(!b||u.at>b.at))b=u;return b}
+function docsFor(id){
+  const out=realFor(id).map(([k,r])=>{const rev=latestRev(k);return rev?{key:k,orig:k,rev,t:rev.t,ep:rev.ep||r.ep,ext:rev.ext,file:rev.name}:{key:k,orig:k,t:r.t,ep:r.ep,ext:r.ext,n:r.n,file:r.file,r}});
+  UP.filter(u=>u.kind==="add"&&u.std===id).sort((a,b)=>a.at<b.at?-1:1).forEach(u=>out.push({key:"u:"+u.id,up:u,t:u.t,ep:u.ep,ext:u.ext,file:u.name}));
+  return out;
+}
+function canDelete(u){return u.where==="local"||!!shared.assets}
+function storeNote(){return shared.assets&&shared.db?"Tersimpan untuk semua yang membuka aplikasi ini (narasumber lain juga melihatnya).":"Tersimpan di perangkat ini saja. Narasumber lain tidak melihatnya."}
+function docsSection(s){
+  const docs=docsFor(s.id);
+  const card=x=>{
+    if(x.orig){const k=x.orig,r=REAL[k];
+      return `<div class="docw"><button class="doc" data-key="${x.key}"><span class="pv"><img src="real/${k}/thumb.webp" alt="" decoding="async" width="${r.dim[0]}" height="${r.dim[1]}">${x.rev?`<span class="ribbon rev">Revisi</span>`:""}<span class="ft ${x.ext}">${extLbl(x.ext)}</span>${x.rev?"":`<span class="pg">${r.n} hlm</span>`}</span><b>${esc(x.t)}</b><small>${x.rev?`Revisi · ${esc(x.rev.name)}`:`${s.id} ${esc(x.ep)}`}</small></button><button class="revb" data-rev="${x.orig}" title="Unggah revisi dokumen ini">↻ Revisi</button></div>`}
+    return `<div class="docw"><button class="doc" data-key="${x.key}"><span class="pv ph" style="--phc:${EXTC[x.ext]||"#6B7280"}"><span class="big">${extLbl(x.ext)}</span><span class="ribbon add">Tambahan</span></span><b>${esc(x.t)}</b><small>${esc(x.ep?s.id+" "+x.ep:s.id)} · ${x.up.where==="shared"?"bersama":"perangkat ini"}</small></button></div>`};
+  return `<div class="dochead"><h3>Contoh dokumen <span class="n">${docs.length}</span></h3><button class="addbtn" id="addDoc">＋ Tambah dokumen</button></div>
+    <div id="upSlot">${upState?upFormHTML(s):""}</div>
+    ${docs.length?`<div class="docs">${docs.map(card).join("")}</div>`:`<div class="noDocs">Belum ada contoh dokumen untuk standar ini. Klik <b>＋ Tambah dokumen</b> untuk mengunggah file Word, Excel, atau PDF.</div>`}`;
+}
+function refreshDocs(){
+  updateCounts();render();
+  if(openIdx>=0&&!$("#drawer").hidden){const sec=$("#docSec");if(sec)sec.innerHTML=docsSection(STD[openIdx]);bindUpForm()}
+  if(!$("#pres").hidden)renderSlide();
+}
+function mergeUP(){UP=sharedRecs.concat(localRecs);refreshDocs()}
+
+/* form */
+function upFormHTML(s){
+  const st=upState,isRev=st.mode==="rev",r=isRev?REAL[st.target]:null;
+  const eps=s.ep.map(([k])=>k);
+  return `<div class="upform">
+    <h4>${isRev?`Unggah revisi: ${esc(r.t)}`:`Tambah dokumen ke ${s.id}`}</h4>
+    <div class="drop" id="upDrop"><label class="pick">📎 Pilih file<input type="file" id="upFile" accept="${ACCEPT}"></label><span class="fname" id="upName">${st.file?esc(st.file.name)+" · "+fmtSize(st.file.size):"Word (.docx), Excel (.xlsx), atau PDF. Bisa juga seret file ke sini."}</span></div>
+    <div class="row2"><label class="f">Judul dokumen<input type="text" id="upTitle" value="${esc(st.title||"")}" placeholder="Misal: SPO Kebersihan Tangan"></label>
+      <label class="f">Elemen penilaian<select id="upEp"><option value="">—</option>${eps.map(k=>`<option value="EP ${k}" ${st.ep==="EP "+k?"selected":""}>EP ${k}</option>`).join("")}${st.ep&&!eps.some(k=>"EP "+k===st.ep)?`<option value="${esc(st.ep)}" selected>${esc(st.ep)}</option>`:""}</select></label></div>
+    <div class="err" id="upErr"></div>
+    <div class="acts"><button class="go" id="upGo" ${st.file?"":"disabled"}>${isRev?"Simpan revisi":"Simpan dokumen"}</button><button class="no" id="upNo">Batal</button><span class="where">${storeNote()}</span></div>
+  </div>`;
+}
+function fmtSize(n){return n>1048576?(n/1048576).toFixed(1)+" MB":Math.max(1,Math.round(n/1024))+" KB"}
+function openUpForm(mode,target){
+  const s=STD[openIdx];const r=target?REAL[target]:null;
+  upState={mode,target:target||null,file:null,title:r?r.t:"",ep:r?(r.ep.split(",")[0]||"").replace(/–.*/,"").trim():""};
+  $("#upSlot").innerHTML=upFormHTML(s);bindUpForm();
+  $("#upSlot").scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+function setUpFile(f){
+  if(!f)return;const x=extOf(f.name),err=$("#upErr");
+  if(!MIME[x]){err.textContent="Format belum didukung. Gunakan .docx, .xlsx, .pdf, .png, atau .jpg (file .doc/.xls lama: simpan ulang sebagai .docx/.xlsx).";return}
+  const lim=shared.assets?14*1048576:60*1048576;
+  if(f.size>lim){err.textContent=`File terlalu besar (${fmtSize(f.size)}). Batas ${fmtSize(lim)}.`;return}
+  err.textContent="";upState.file=f;
+  if(upState.mode==="add"&&!$("#upTitle").value)$("#upTitle").value=f.name.replace(/\.[^.]+$/,"").replace(/[_]+/g," ").trim();
+  $("#upName").textContent=f.name+" · "+fmtSize(f.size);$("#upGo").disabled=false;
+}
+function bindUpForm(){
+  const slot=$("#upSlot");if(!slot||!upState||!$("#upFile"))return;
+  $("#upFile").onchange=e=>setUpFile(e.target.files[0]);
+  const d=$("#upDrop");
+  d.ondragover=e=>{e.preventDefault();d.classList.add("over")};d.ondragleave=()=>d.classList.remove("over");
+  d.ondrop=e=>{e.preventDefault();d.classList.remove("over");setUpFile(e.dataTransfer.files[0])};
+  $("#upTitle").oninput=e=>{upState.title=e.target.value};$("#upEp").onchange=e=>{upState.ep=e.target.value};
+  $("#upNo").onclick=()=>{upState=null;slot.innerHTML=""};
+  $("#upGo").onclick=saveUpload;
+}
+async function saveUpload(){
+  const st=upState,s=STD[openIdx];if(!st||!st.file)return;
+  const go=$("#upGo");go.disabled=true;go.textContent="Menyimpan…";
+  const f=st.file,ext=extOf(f.name);
+  const rec={id:"u"+Date.now().toString(36)+Math.random().toString(36).slice(2,7),std:s.id,kind:st.mode,target:st.target,t:($("#upTitle").value||f.name).trim().slice(0,160),ep:$("#upEp").value||"",name:f.name,ext,size:f.size,at:new Date().toISOString()};
+  const olds=st.mode==="rev"?UP.filter(u=>u.kind==="rev"&&u.target===st.target&&canDelete(u)):[];
+  try{
+    if(shared.assets&&shared.db){
+      const b64=await blobToB64(f);
+      const a=await shared.assets.upload(new Blob([b64],{type:"text/plain"}),{type:"text/plain"});
+      await shared.db.collection(SHARED_COL).doc(rec.id).set({...rec,assetId:a.id});
+      sharedRecs=sharedRecs.filter(x=>x.id!==rec.id).concat([{...rec,assetId:a.id,where:"shared"}]);
+    }else{
+      await idbPut({...rec,where:"local",blob:f});localRecs.push({...rec,where:"local",blob:f});
+    }
+    for(const o of olds){try{await removeUpload(o,true)}catch(e){}}
+    upState=null;mergeUP();
+    toast(st.mode==="rev"?"Revisi tersimpan. Dokumen asli tetap bisa dilihat.":"Dokumen ditambahkan.");
+  }catch(e){
+    const c=e&&e.code;const err=$("#upErr");
+    if(err)err.textContent=c==="too_large"?"File terlalu besar untuk penyimpanan bersama.":c==="quota_or_state"?"Kuota penyimpanan aplikasi penuh. Hapus dokumen yang tidak dipakai.":c==="rate_limited"?"Terlalu sering. Tunggu sebentar lalu coba lagi.":"Gagal menyimpan. Coba lagi.";
+    if(go){go.disabled=false;go.textContent="Coba lagi"}
+  }
+}
+async function removeUpload(u,quiet){
+  if(u.where==="shared"){
+    if(!shared.assets)throw new Error("perm");
+    await shared.db.collection(SHARED_COL).doc(u.id).delete();
+    try{await shared.assets.delete(u.assetId)}catch(e){}
+    sharedRecs=sharedRecs.filter(x=>x.id!==u.id);
+  }else{await idbDel(u.id);localRecs=localRecs.filter(x=>x.id!==u.id)}
+  blobCache.delete(u.id);
+  if(!quiet)mergeUP();
+}
+
+/* storage: lokal (IndexedDB) */
+let idbp=null;
+function idb(){if(idbp)return idbp;idbp=new Promise((res,rej)=>{try{const r=indexedDB.open("rumahhijo-dokumen",1);r.onupgradeneeded=()=>r.result.createObjectStore("up",{keyPath:"id"});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});return idbp}
+function idbAll(){return idb().then(d=>new Promise((res,rej)=>{const q=d.transaction("up").objectStore("up").getAll();q.onsuccess=()=>res(q.result||[]);q.onerror=()=>rej(q.error)}))}
+function idbPut(rec){return idb().then(d=>new Promise((res,rej)=>{const t=d.transaction("up","readwrite");t.objectStore("up").put(rec);t.oncomplete=()=>res();t.onerror=()=>rej(t.error)}))}
+function idbDel(id){return idb().then(d=>new Promise((res,rej)=>{const t=d.transaction("up","readwrite");t.objectStore("up").delete(id);t.oncomplete=()=>res();t.onerror=()=>rej(t.error)}))}
+idbAll().then(rs=>{localRecs=rs.map(r=>({...r,where:"local"}));mergeUP()}).catch(()=>{});
+
+/* foto narasumber */
+const FOTO_COL="rh/docs/foto";let fotoShared={},fotoMenu=null;
+function fotoLocal(id){try{return localStorage.getItem("rh-foto-"+id)}catch(e){return null}}
+function fotoOf(id){return fotoLocal(id)||fotoShared[id]||null}
+function paintLogo(){const u=fotoOf("logo"),b=$("#logoBtn");if(b){let im=b.querySelector("img");if(u){if(!im){im=document.createElement("img");im.alt="Logo HIPPII";b.insertBefore(im,b.firstChild)}im.src=u;b.classList.add("has")}else{if(im)im.remove();b.classList.remove("has")}}document.querySelectorAll(".plogo").forEach(i=>{if(u){i.src=u;i.hidden=false}else{i.hidden=true;i.removeAttribute("src")}})}
+function paintFoto(){paintLogo();document.querySelectorAll("button.av[data-p]").forEach(b=>{const u=fotoOf(b.dataset.p);let im=b.querySelector("img");if(u){if(!im){im=document.createElement("img");im.alt="";b.insertBefore(im,b.firstChild)}im.src=u}else if(im)im.remove()})}
+function shrinkImg(f){return new Promise((res,rej)=>{const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{const S=320,r=Math.max(S/im.width,S/im.height),w=im.width*r,h=im.height*r,c=document.createElement("canvas");c.width=c.height=S;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,S,S);x.drawImage(im,(S-w)/2,(S-h)/2,w,h);URL.revokeObjectURL(u);res(c.toDataURL("image/jpeg",.82))};im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error("img"))};im.src=u})}
+function shrinkLogo(f){return new Promise((res,rej)=>{const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{const M=480,r=Math.min(1,M/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);c.getContext("2d").drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);const png=c.toDataURL("image/png");res(png.length<400000?png:c.toDataURL("image/webp",.9))};im.onerror=()=>{URL.revokeObjectURL(u);rej(new Error("img"))};im.src=u})}
+async function setFoto(id,f){
+  if(!f||!/^image\//.test(f.type)){alert("Pilih file gambar (JPG/PNG).");return}
+  let d;try{d=await (id==="logo"?shrinkLogo(f):shrinkImg(f))}catch(e){alert("Gambar tidak bisa dibaca.");return}
+  let ok=false;
+  if(shared.assets&&shared.db){try{await shared.db.collection(FOTO_COL).doc(id).set({d,at:Date.now()});fotoShared[id]=d;ok=true;try{localStorage.removeItem("rh-foto-"+id)}catch(e){}}catch(e){}}
+  if(!ok){try{localStorage.setItem("rh-foto-"+id,d)}catch(e){alert("Foto tidak bisa disimpan di perangkat ini.");return}}
+  paintFoto();
+}
+async function delFoto(id){
+  try{localStorage.removeItem("rh-foto-"+id)}catch(e){}
+  if(shared.assets&&shared.db&&fotoShared[id]){try{await shared.db.collection(FOTO_COL).doc(id).delete();delete fotoShared[id]}catch(e){}}
+  paintFoto();
+}
+function closeFotoMenu(){if(fotoMenu){fotoMenu.remove();fotoMenu=null}}
+function pickFoto(id){const i=document.createElement("input");i.type="file";i.accept="image/*";i.onchange=()=>setFoto(id,i.files[0]);i.click()}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button.av[data-p],button.logo[data-p]");
+  if(!b){if(fotoMenu&&!e.target.closest(".fmenu"))closeFotoMenu();return}
+  e.preventDefault();const id=b.dataset.p;closeFotoMenu();
+  if(!fotoOf(id)){pickFoto(id);return}
+  const r=b.getBoundingClientRect();fotoMenu=document.createElement("div");fotoMenu.className="fmenu";
+  fotoMenu.innerHTML=`<button data-a="ganti">📷 Ganti ${id==="logo"?"logo":"foto"}</button><button data-a="hapus">🗑 Hapus ${id==="logo"?"logo":"foto"}</button><small>${shared.assets&&shared.db?(id==="logo"?"Logo":"Foto")+" tersimpan untuk semua yang membuka aplikasi.":(id==="logo"?"Logo":"Foto")+" tersimpan di perangkat ini."}</small>`;
+  fotoMenu.style.left=Math.min(r.left,innerWidth-220)+"px";fotoMenu.style.top=(r.bottom+8)+"px";document.body.appendChild(fotoMenu);
+  fotoMenu.onclick=ev=>{const a=ev.target.closest("button")?.dataset.a;closeFotoMenu();if(a==="ganti")pickFoto(id);else if(a==="hapus")delFoto(id)};
+});
+addEventListener("scroll",closeFotoMenu,{passive:true});
+paintFoto();
+
+/* storage: bersama (claude.ai) */
+if(window.claude&&claude.use){
+  Promise.all([claude.use("assets").catch(()=>null),claude.use("db").catch(()=>null)]).then(([a,d])=>{
+    shared.assets=a;shared.db=d;
+    if(d){try{d.collection(FOTO_COL).onSnapshot(snap=>{fotoShared={};snap.docs.forEach(x=>{const v=x.data();if(v&&v.d)fotoShared[x.id]=v.d});paintFoto()},()=>{})}catch(e){}}
+    if(d){try{d.collection(SHARED_COL).onSnapshot(snap=>{sharedRecs=snap.docs.map(x=>({...x.data(),id:x.id,where:"shared"}));mergeUP()},()=>{})}catch(e){}}
+    if(upState&&$("#upSlot"))refreshDocs();
+  });
+}
+
+/* blob helpers */
+const blobCache=new Map();
+function blobToB64(b){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(String(fr.result).split(",")[1]||"");fr.onerror=()=>rej(fr.error);fr.readAsDataURL(b)})}
+function b64ToBlob(b64,type){const bin=atob(b64),n=bin.length,u=new Uint8Array(n);for(let i=0;i<n;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type})}
+async function blobOf(u){
+  if(u.blob)return u.blob;if(blobCache.has(u.id))return blobCache.get(u.id);
+  const r=await fetch("/_blob/"+u.assetId);if(!r.ok)throw new Error("fetch");
+  const b=b64ToBlob((await r.text()).trim(),MIME[u.ext]||"application/octet-stream");blobCache.set(u.id,b);return b;
+}
+async function saveBlob(b,name,msgEl){
+  const m=t=>{if(msgEl)msgEl.textContent=t};
+  if(dl){try{await dl.save({filename:name,data:b});m("File diunduh.")}catch(e){const c=e&&e.code;m(c==="declined"?"Unduhan dibatalkan.":"Unduhan tidak tersedia di tampilan ini.")}return}
+  const url=URL.createObjectURL(b);const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000);m("Mengunduh "+name+"…");
+}
+
+/* pustaka pratinjau (dimuat saat dibutuhkan) */
+const LIB={
+  pdf:["https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js","https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"],
+  docx:["https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js","https://cdn.jsdelivr.net/npm/docx-preview@0.3.6/dist/docx-preview.min.js"],
+  xlsx:["https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"]};
+const libDone=new Map();
+function loadScript(src){if(libDone.has(src))return libDone.get(src);const p=new Promise((res,rej)=>{const sc=document.createElement("script");sc.src=src;sc.onload=()=>res();sc.onerror=()=>{libDone.delete(src);rej(new Error("lib"))};document.head.appendChild(sc)});libDone.set(src,p);return p}
+async function needLib(k){for(const u of LIB[k])await loadScript(u);if(k==="pdf"&&window.pdfjsLib)pdfjsLib.GlobalWorkerOptions.workerSrc=LIB.pdf[1]}
+
+/* buka dokumen */
+function openKey(key,list,forceOrig){
+  if(key.startsWith("u:")){const u=UP.find(x=>x.id===key.slice(2));if(u)openUpload(u,list,key);return}
+  const rev=!forceOrig&&latestRev(key);
+  if(rev)openUpload(rev,list,key);else openReal(key,list,key);
+}
+function viewerButtons(u,origSlug){
+  $("#vorig").hidden=!(u&&u.kind==="rev");$("#vrevd").hidden=!(!u&&origSlug&&latestRev(origSlug));
+  const del=$("#vdel");del.hidden=!(u&&canDelete(u));del.classList.remove("sure");del.textContent=u&&u.kind==="rev"?"Hapus revisi":"Hapus";
+}
+async function openUpload(u,list,key){
+  cur="u:"+u.id;curKey=key||("u:"+u.id);$("#vmsg").textContent="";
+  curList=list||(openIdx>=0?docsFor(STD[openIdx].id).map(x=>x.key):[curKey]);
+  const pos=curList.indexOf(curKey);$("#vprev").disabled=pos<=0;$("#vnext").disabled=pos<0||pos>=curList.length-1;$("#vprev").hidden=$("#vnext").hidden=curList.length<2;
+  viewerButtons(u,u.target);
+  $("#vdl").textContent="⬇ Unduh "+({docx:"Word",xlsx:"Excel",pdf:"PDF"}[u.ext]||"file");$("#vdl").hidden=false;
+  const label=u.kind==="rev"?"Revisi":"Dokumen tambahan";
+  showViewer(u.t,`${u.name} · ${label} · ${u.where==="shared"?"tersimpan bersama":"tersimpan di perangkat ini"}${curList.length>1?` · ${pos+1}/${curList.length}`:""}`,`<div class="vload"><span class="spin"></span>Memuat dokumen…</div>`);
+  const token=cur;
+  try{
+    const b=await blobOf(u);if(cur!==token)return;
+    const vb=$("#vbody");
+    if(u.ext==="pdf"){
+      await needLib("pdf");if(cur!==token)return;
+      const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await b.arrayBuffer())}).promise;
+      const imgs=[];
+      for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const v0=pg.getViewport({scale:1});const sc=Math.min(2.2,1400/v0.width);const v=pg.getViewport({scale:sc});const cv=document.createElement("canvas");cv.width=v.width;cv.height=v.height;await pg.render({canvasContext:cv.getContext("2d"),viewport:v}).promise;imgs.push([cv.toDataURL("image/jpeg",.86),v.width,v.height]);if(cur!==token)return}
+      curDim=[imgs[0][1],imgs[0][2]];
+      vb.innerHTML=`<div class="pages">${imgs.map(([src,w,h],i)=>`<img class="page" src="${src}" width="${w}" height="${h}" alt="${esc(u.t)}, halaman ${i+1}">`).join("")}<p class="vnote">${pdf.numPages} halaman.</p></div>`;
+      zmode="free";zoom=1;requestAnimationFrame(()=>applyZoom(false));
+    }else if(u.ext==="docx"){
+      await needLib("docx");if(cur!==token)return;
+      vb.innerHTML=`<div class="hpages" id="hp"></div>`;
+      await docx.renderAsync(b,$("#hp"),null,{inWrapper:true,ignoreWidth:false,ignoreHeight:false,breakPages:true,experimental:true,useBase64URL:true});
+      zmode=vb.clientWidth<900?"fitw":"free";zoom=1;requestAnimationFrame(()=>applyZoom(false));
+    }else if(u.ext==="xlsx"){
+      await needLib("xlsx");if(cur!==token)return;
+      const wb=XLSX.read(new Uint8Array(await b.arrayBuffer()),{type:"array"});
+      vb.innerHTML=`<div class="hpages">${wb.SheetNames.map(n=>`<div class="sheet"><h4>${esc(n)}</h4>${XLSX.utils.sheet_to_html(wb.Sheets[n],{header:"",footer:""})}</div>`).join("")}</div>`;
+      zmode=vb.clientWidth<900?"fitw":"free";zoom=1;requestAnimationFrame(()=>applyZoom(false));
+    }else{
+      const url=URL.createObjectURL(b);curURL=url;const im=new Image();im.src=url;await im.decode().catch(()=>{});curDim=[im.naturalWidth||900,im.naturalHeight||1200];
+      vb.innerHTML=`<div class="pages"><img class="page" src="${url}" width="${curDim[0]}" height="${curDim[1]}" alt="${esc(u.t)}"></div>`;
+      zmode="free";zoom=1;requestAnimationFrame(()=>applyZoom(false));
+    }
+  }catch(e){
+    if(cur!==token)return;
+    $("#vbody").innerHTML=`<div class="vload">Pratinjau belum bisa ditampilkan${navigator.onLine===false?" karena perangkat sedang offline":""}.<br>File tetap bisa dibuka dengan tombol <b>Unduh</b>.</div>`;
+  }
+}
+$("#vorig").onclick=()=>{const u=UP.find(x=>x.id===cur.slice(2));if(u)openReal(u.target,curList,curKey)};
+$("#vrevd").onclick=()=>{const k=cur.slice(2);const rev=latestRev(k);if(rev)openUpload(rev,curList,curKey)};
+$("#vdel").onclick=async()=>{
+  const b=$("#vdel");const u=UP.find(x=>x.id===cur.slice(2));if(!u)return;
+  if(!b.classList.contains("sure")){b.classList.add("sure");b.textContent="Klik lagi untuk menghapus";clearTimeout(b._t);b._t=setTimeout(()=>{b.classList.remove("sure");b.textContent=u.kind==="rev"?"Hapus revisi":"Hapus"},3500);return}
+  try{await removeUpload(u);closeViewer();toast(u.kind==="rev"?"Revisi dihapus. Dokumen asli dipakai lagi.":"Dokumen dihapus.")}
+  catch(e){$("#vmsg").textContent="Hanya pemilik/editor aplikasi yang bisa menghapus dokumen bersama."}
+};
+updateCounts();
+
+/* PWA: install + offline */
+let deferred=null;
+const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;$("#install").hidden=false});
+window.addEventListener("appinstalled",()=>{$("#install").hidden=true;deferred=null});
+if(!standalone&&isIOS)$("#install").hidden=false;
+$("#install").onclick=async()=>{
+  if(deferred){deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install").hidden=true;return}
+  $("#helpbody").innerHTML=isIOS?`<ol><li>Buka halaman ini di <b>Safari</b>.</li><li>Ketuk tombol <b>Bagikan</b> (kotak dengan panah ke atas).</li><li>Pilih <b>Tambahkan ke Layar Utama</b>, lalu <b>Tambah</b>.</li></ol>`
+    :`<ol><li>Buka halaman ini di <b>Chrome</b> atau <b>Edge</b>.</li><li>Buka menu <b>⋮</b> di pojok kanan atas.</li><li>Pilih <b>Instal aplikasi</b> atau <b>Tambahkan ke layar utama</b>.</li></ol>`;
+  $("#help").hidden=false;$("#helpok").focus()};
+$("#helpok").onclick=()=>{$("#help").hidden=true};
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.addEventListener("message",e=>{const d=e.data||{};
+    if(d.type==="progress"){$("#off").className="off";$("#off").textContent=`Menyimpan offline ${d.done}/${d.total}`}
+    if(d.type==="ready"){$("#off").className="off ok";$("#off").textContent="✓ Siap dipakai offline"}});
+  navigator.serviceWorker.register("sw.js").then(r=>navigator.serviceWorker.ready).then(r=>{
+    caches.keys().then(k=>{if(k.some(x=>x.startsWith("rumahhijo-v"))&&navigator.serviceWorker.controller){$("#off").className="off ok";$("#off").textContent="✓ Siap dipakai offline"}})}).catch(()=>{});
+}
+render();
+</script>
+
+</body>
+</html>
