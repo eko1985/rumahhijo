@@ -40,7 +40,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 
 /* HERO */
 .hero{background:var(--night);color:var(--onnight);position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:44px 40px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:40px 40px}
 .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--onnight-2)}
 .eyebrow b{color:var(--sun);font-weight:700}
 .logo{display:inline-flex;align-items:center;border:0;background:none;padding:0;margin:0 0 14px;cursor:pointer;color:inherit;font:inherit;position:relative;border-radius:14px}
@@ -50,7 +50,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .logo.has .lph{display:none}
 .logo.has:hover::after{content:"📷";position:absolute;right:-8px;bottom:-8px;width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.25)}
 .plogo{height:26px;width:auto;vertical-align:middle;margin-right:8px;border-radius:4px}
-.title{font-size:clamp(56px,10vw,128px);font-weight:900;font-stretch:125%;letter-spacing:-.02em;margin-top:12px;line-height:.92}
+.title{font-size:clamp(50px,8.4vw,110px);font-weight:900;font-stretch:125%;letter-spacing:-.02em;margin-top:12px;line-height:.92}
 .title .r{display:block}
 .title .h{display:inline-flex;gap:.02em}
 .title .h span{display:inline-block}
@@ -67,13 +67,42 @@ button{font:inherit;cursor:pointer;color:inherit}
 .tile:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 10px 24px rgba(0,0,0,.35)}
 .tile .L{font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:clamp(22px,3.2vw,38px);line-height:1}
 .tile .T{font-size:clamp(10px,1.05vw,12px);font-weight:700;line-height:1.15}
+.tile .hd{display:flex;align-items:flex-start;justify-content:space-between;gap:3px;width:100%;min-width:0}
+.tile .P{font-family:var(--f-display);font-weight:800;font-size:clamp(9.5px,.88vw,13px);line-height:1;padding:3px 6px;letter-spacing:-.01em;border-radius:999px;background:rgba(255,255,255,.3);white-space:nowrap;margin-top:2px}
+.tile.wide .hd{width:auto;display:contents}
+.tile.wide .P{order:3;margin:0 0 0 auto;align-self:center}
+.hero>.band{position:relative;z-index:1;width:min(1200px,calc(100% - 32px));margin:0 auto 18px;border-radius:22px;box-shadow:0 10px 30px rgba(60,40,10,.14);overflow:hidden}
+.hero>.band>.wrap{max-width:none;padding-inline:22px}
+.tile.wide{grid-column:1/-1;aspect-ratio:auto;flex-direction:row;align-items:center;justify-content:flex-start;gap:14px;padding:10px 14px}
+.tile.wide .L{font-size:clamp(22px,2.6vw,30px)}
+.tile.wide .T{font-size:clamp(11px,1.1vw,13px)}
+.rekap{all:unset;display:block;cursor:pointer;margin:14px 2px 0;font-size:13.5px;color:var(--ink-2);line-height:1.5;border-radius:6px}
+.rekap:hover{color:var(--ink)}
+.rekap:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.rekap .go{font-weight:700;color:var(--brand);margin-left:6px;white-space:nowrap}
+.rekap b{color:var(--ink);font-weight:800}
 .tile.info{background:var(--night-2);color:var(--onnight);cursor:default}
 .tile.info:hover{transform:none;box-shadow:none}
 .tile.info .L{color:var(--sun)}
 
 /* PEOPLE BAND */
 .band{background:var(--night-2);color:var(--onnight)}
-.band .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.25fr);gap:14px;padding-block:18px}
+.band .wrap{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:28px;padding-block:20px}
+.people{display:grid;gap:14px 16px}
+.people.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.people.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pinfo,.who{min-width:0}
+.who{all:unset;cursor:pointer;display:block;min-width:0;border-radius:8px}
+.who:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.who:hover b{text-decoration:underline dashed;text-underline-offset:3px}
+.who.kosong b{opacity:.7;font-style:italic}
+.who.kosong span{opacity:.75}
+.fedit{gap:8px;padding:12px;min-width:260px}
+.fedit label{display:grid;gap:4px;font-size:12px;font-weight:700;color:var(--ink-2)}
+.fedit input{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.fedit .acts{display:flex;gap:6px;justify-content:flex-end;margin-top:4px}
+.fedit .acts button{all:unset;cursor:pointer;padding:7px 12px;border-radius:8px;font-size:13.5px;font-weight:700}
+.fedit .acts .go{background:var(--ink);color:var(--bg)}
 .person{display:flex;gap:12px;align-items:center;min-width:0}
 .av{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-size:17px;color:#fff}
 .person b{display:block;font-size:14px;line-height:1.25}
@@ -127,10 +156,10 @@ button.av:hover .cam,button.av:focus-visible .cam{opacity:1;transform:scale(1.1)
 .card{position:relative;display:flex;flex-direction:column;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);transition:transform .16s ease,border-color .16s ease}
 .card:hover{transform:translateY(-2px);border-color:var(--gc)}
 .chead{display:flex;gap:12px;align-items:flex-start}
-.blk{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:22px}
+.blk{flex:none;width:50px;height:50px;border-radius:13px;display:grid;place-items:center;font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:22px}
 .ctxt{min-width:0}
-.code{font-family:var(--f-mono);font-weight:700;font-size:12.5px;color:var(--ink-2)}
-.ctxt b{display:block;font-size:16px;line-height:1.3;margin-top:2px}
+.code{display:block;font-family:var(--f-display);font-weight:900;font-stretch:115%;font-size:22px;line-height:1.05;color:var(--ink);letter-spacing:-.01em}
+.ctxt b{display:block;font-size:18px;line-height:1.3;margin-top:4px;font-weight:700}
 .stack{display:flex;align-items:flex-end;gap:10px;margin-top:auto}
 .thumbs{display:flex;padding-left:6px}
 .thumbs img{width:46px;height:62px;object-fit:cover;object-position:top;border-radius:4px;border:2px solid var(--surface);margin-left:-8px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
@@ -264,13 +293,21 @@ button.av:hover .cam,button.av:focus-visible .cam{opacity:1;transform:scale(1.1)
 footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--ink-2);font-size:13.5px}
 footer p{margin:0 0 6px;max-width:85ch}
 
+@media (max-width:1100px){
+  .band .wrap{grid-template-columns:1fr;gap:16px}
+}
 @media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;gap:26px;padding-block:32px}
-  .band .wrap{grid-template-columns:1fr 1fr}
-  .sesi{grid-column:1/-1}
+  .hero .wrap{grid-template-columns:1fr;gap:26px;padding-block:28px}
+}
+@media (max-width:640px){
+  .people.two,.people.three{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:repeat(7,1fr)}
+  .tile,.tile.wide{grid-column:auto;aspect-ratio:1;padding:4px;justify-content:center;align-items:center;flex-direction:column;border-radius:10px}
+  .tile .T,.tile.wide .T,.tile .P{display:none}
+  .tile .L,.tile.wide .L{font-size:20px}
+  .facts{gap:6px}.fact{font-size:13px;padding:6px 10px}
 }
 @media (max-width:520px){
-  .band .wrap{grid-template-columns:1fr}
   .mosaic{gap:6px}
   .tile{border-radius:12px;padding:7px}
   .docs{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -484,12 +521,105 @@ html[data-style="malam"] .vhint{background:rgba(255,255,255,.9);color:#12152F}
 html[data-style="malam"] .page{box-shadow:0 10px 40px rgba(0,0,0,.5)}
 html[data-style="malam"] .revb{background:#EEF0FF;color:#12152F}
 html[data-style="malam"] .upform .acts .go{background:#EEF0FF;color:#12152F}
+
+/* MENU */
+.menub{gap:8px}
+.hb{display:inline-grid;gap:3px;width:16px}.hb i{display:block;height:2px;border-radius:2px;background:currentColor}
+.flink{all:unset;cursor:pointer;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.mscrim{position:fixed;inset:0;background:rgba(8,10,28,.45);z-index:60}
+.menu{position:fixed;top:0;right:0;bottom:0;width:min(410px,100%);z-index:61;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;box-shadow:-16px 0 50px rgba(0,0,0,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.mtop{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
+.mtop b{font-family:var(--f-display);font-size:22px;font-weight:900;font-stretch:115%}
+.mbody{overflow:auto;padding:4px 12px 30px;overscroll-behavior:contain}
+.menu section{padding:14px 2px 12px;border-bottom:1px solid var(--line)}
+.menu section:last-child{border-bottom:0}
+.menu h4{margin:0 8px 6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.mi{display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:0;background:none;padding:9px 8px;border-radius:12px;color:var(--ink);text-decoration:none;font-size:15px;cursor:pointer;list-style:none}
+.mi::-webkit-details-marker{display:none}
+.mi:hover{background:var(--surface-2)}
+.mi .ic{width:36px;height:36px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;flex:none;font-size:16px}
+.mi b{display:block;font-weight:700;font-size:15px}
+.mi small{display:block;color:var(--ink-2);font-size:12.5px;line-height:1.35;margin-top:1px}
+.mkeys table{width:calc(100% - 16px);margin:4px 8px 6px;border-collapse:collapse;font-size:13px}
+.mkeys td{padding:5px 4px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.mkeys td:first-child{white-space:nowrap;width:1%;padding-right:10px}
+kbd{font-family:var(--f-mono);font-size:11.5px;font-weight:700;padding:1px 6px;border-radius:5px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.mthemes{display:grid;gap:8px;padding:2px 6px}
+.law{margin:2px 8px 8px;padding-left:20px;font-size:13.5px;line-height:1.5;display:grid;gap:6px}
+.mnote{margin:6px 8px 0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.mnote b{color:var(--ink)}
+.menu .off{display:block;margin:4px 8px 0;font-size:12.5px}
+.qrov{position:fixed;inset:0;z-index:110;background:rgba(8,10,28,.75);display:grid;place-items:center;padding:16px;cursor:pointer}
+.qrbox{background:#fff;color:#1D1B3F;border-radius:24px;padding:26px 28px 22px;display:grid;justify-items:center;gap:6px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.4);cursor:auto}
+.qrbox img{width:min(330px,70vw,58vh);height:auto;image-rendering:pixelated}
+.qrbox b{font-family:var(--f-display);font-size:clamp(20px,3vw,28px);font-weight:900;margin-top:6px}
+.qrbox span{font-family:var(--f-mono);font-size:15px;color:#5F5A7E}
+.qrbox button{margin-top:10px;border:0;background:#1D1B3F;color:#fff;border-radius:10px;padding:9px 18px;font-weight:700}
+.msesi{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;padding-top:20px}
+.msesi .row{display:flex;flex-wrap:wrap;gap:6px}
+.lbl2{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+.msesi .sbtn.sbtn.sbtn{background:var(--surface);border:1px solid var(--line);color:var(--ink);padding:6px 12px;font-size:13px}
+.msesi .sbtn.sbtn.sbtn b{color:var(--brand)}
+.msesi .sbtn.sbtn.sbtn:hover,.msesi .sbtn.sbtn.sbtn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.msesi .sbtn.sbtn.sbtn:hover b,.msesi .sbtn.sbtn.sbtn[aria-pressed="true"] b{color:var(--sun)}
+.listhead{padding-top:14px}
+@media (max-width:640px){.lw2{display:none}}
+
+/* ===== SAMPUL SATU LAYAR (laptop / proyektor) ===== */
+@media (min-width:901px) and (min-height:420px){
+  .cover{height:var(--H,calc(var(--vh,1vh)*100));overflow:hidden}
+  .cover .hero{height:100%;display:flex;flex-direction:column}
+  .cover .hero>.wrap{flex:1 1 auto;min-height:0;align-content:center;width:100%;gap:clamp(24px,4vw,56px);padding-block:clamp(14px,calc(var(--vh,1vh)*3),36px)}
+  .logo{margin-bottom:clamp(6px,calc(var(--vh,1vh)*1.4),14px)}
+  .logo img{max-height:clamp(44px,calc(var(--vh,1vh)*9),92px)}
+  .logo .lph{padding:clamp(6px,calc(var(--vh,1vh)*1.2),12px) 14px}
+  .title{font-size:clamp(44px,min(8.2vw,calc(var(--vh,1vh)*13.2)),118px);margin-top:clamp(4px,calc(var(--vh,1vh)*1),12px)}
+  .sub{margin-top:clamp(4px,calc(var(--vh,1vh)*1.1),12px);font-size:clamp(16px,min(2.2vw,calc(var(--vh,1vh)*3)),24px)}
+  .topic{margin-top:clamp(10px,calc(var(--vh,1vh)*2.2),22px);padding:clamp(8px,calc(var(--vh,1vh)*1.4),12px) 16px}
+  .topic b{font-size:clamp(16px,min(1.9vw,calc(var(--vh,1vh)*2.8)),22px)}
+  .facts{margin-top:clamp(8px,calc(var(--vh,1vh)*1.6),16px)}
+  .fact{padding:clamp(5px,.8vh,7px) 12px;font-size:clamp(12.5px,calc(var(--vh,1vh)*1.8),14px)}
+  .hright{justify-self:end;width:min(100%,calc(var(--vh,1vh)*90))}
+  .cover .tile:not(.wide){aspect-ratio:5/4}
+  .cover .hero>.wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .tile .L{font-size:clamp(22px,min(2.8vw,calc(var(--vh,1vh)*5.2)),40px)}
+  .rekap{margin-top:clamp(8px,calc(var(--vh,1vh)*1.6),14px)}
+  .cover .hero>.band{flex:none;margin-bottom:clamp(10px,calc(var(--vh,1vh)*2),20px)}
+  .cover .hero>.band{width:min(1200px,calc(100% - 32px))}
+  .cover .band .wrap{padding-block:clamp(10px,calc(var(--vh,1vh)*2),20px);gap:clamp(16px,2.4vw,32px)}
+  .cover .band .lbl{font-size:10.5px}
+  .cover .people{gap:10px 14px}
+  .cover .person{gap:10px}
+  .cover button.av{width:clamp(40px,calc(var(--vh,1vh)*6.4),54px);height:clamp(40px,calc(var(--vh,1vh)*6.4),54px)}
+  .cover .person b{font-size:clamp(12.5px,calc(var(--vh,1vh)*1.85),14px)}
+  .cover .person span{font-size:clamp(11px,calc(var(--vh,1vh)*1.6),12px)}
+}
+@media (min-width:1500px) and (min-height:860px){
+  .cover .wrap{max-width:min(1640px,90vw)}
+  .cover .hero>.band{width:min(1640px,90vw)}
+  .title{font-size:clamp(44px,min(8.2vw,calc(var(--vh,1vh)*13.2)),156px)}
+  .topic b{font-size:clamp(22px,calc(var(--vh,1vh)*2.6),30px)}
+  .sub{font-size:clamp(24px,calc(var(--vh,1vh)*3),32px)}
+  .fact{font-size:16px;padding:8px 14px}
+  .hright{width:min(100%,calc(var(--vh,1vh)*84))}
+  .tile .T{font-size:14px}
+  .rekap{font-size:15.5px}
+  .cover .person b{font-size:15.5px}
+  .cover .person span{font-size:13px}
+}
+@media (min-width:901px) and (max-width:1100px) and (min-height:420px){
+  .cover .hero>.band{flex:none;margin-bottom:clamp(10px,calc(var(--vh,1vh)*2),20px)}
+  .cover .hero>.band{width:min(1200px,calc(100% - 32px))}
+  .cover .band .wrap{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+  .cover .person b{font-size:12.5px}
+}
 </style>
 </head>
 <body>
 
 <script>try{var _st=localStorage.getItem("rh-style");if(_st)document.documentElement.setAttribute("data-style",_st)}catch(e){}</script>
 
+<div class="cover">
 <header class="hero">
   <div class="wrap">
     <div>
@@ -504,44 +634,45 @@ html[data-style="malam"] .upform .acts .go{background:#EEF0FF;color:#12152F}
         <span class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Auditorium RS Panti Rapih</span>
       </div>
     </div>
-    <div class="mosaic" id="mosaic" aria-label="13 fokus standar PPI"></div>
+    <div class="hright"><div class="mosaic" id="mosaic" aria-label="13 fokus standar PPI"></div><button class="rekap" id="stat" title="Lihat daftar standar"></button></div>
   </div>
-</header>
-
 <section class="band">
   <div class="wrap">
-    <div class="person"><button class="av" data-p="sp" style="background:#FF5A4E" title="Klik untuk unggah foto narasumber" aria-label="Foto narasumber SP"><span class="ini">SP</span><span class="cam" aria-hidden="true">📷</span></button><div><b>Sri Purwaningsih, S.Kep., Ns., M.Sc</b><span>Wakil Ketua HIPPII DIY</span></div></div>
-    <div class="person"><button class="av" data-p="ad" style="background:#4F6BFF" title="Klik untuk unggah foto narasumber" aria-label="Foto narasumber AD"><span class="ini">AD</span><span class="cam" aria-hidden="true">📷</span></button><div><b>Alexander Dadi Rahmadi, S.Kep., Ns</b><span>Wakil Ketua Bidang Hukum, Organisasi &amp; Kaderisasi</span></div></div>
-    <div class="person"><button class="av" data-p="is" style="background:#14B8A6" title="Klik untuk unggah foto narasumber" aria-label="Foto narasumber IS"><span class="ini">IS</span><span class="cam" aria-hidden="true">📷</span></button><div><b>Istiqomah, S.Kep., Ns., M.Sc.</b><span>Wakil Ketua Bidang Pelayanan &amp; Kesejahteraan</span></div></div>
-    <div class="sesi"><span class="lbl">Materi · klik untuk saring</span><div class="row" id="sesi"></div></div>
+    <div class="sesi pgroup"><span class="lbl">Sambutan</span><div class="people two">
+      <div class="person"><button class="av" data-p="sb1" style="background:#8B5CF6" title="Klik untuk unggah foto" aria-label="Foto pemberi sambutan"><span class="ini">👤</span><span class="cam" aria-hidden="true">📷</span></button><button class="who kosong" data-info="sb1" title="Klik untuk mengisi nama dan jabatan"><b>Pemberi sambutan 1</b><span>Klik untuk isi nama &amp; jabatan</span></button></div>
+      <div class="person"><button class="av" data-p="sb2" style="background:#F59E0B" title="Klik untuk unggah foto" aria-label="Foto pemberi sambutan"><span class="ini">👤</span><span class="cam" aria-hidden="true">📷</span></button><button class="who kosong" data-info="sb2" title="Klik untuk mengisi nama dan jabatan"><b>Pemberi sambutan 2</b><span>Klik untuk isi nama &amp; jabatan</span></button></div>
+    </div></div>
+    <div class="sesi pgroup"><span class="lbl">Narasumber</span><div class="people three">
+      <div class="person"><button class="av" data-p="sp" style="background:#FF5A4E" title="Klik untuk unggah foto" aria-label="Foto Sri Purwaningsih, S.Kep., Ns., M.Sc"><span class="ini">SP</span><span class="cam" aria-hidden="true">📷</span></button><div class="pinfo"><b>Sri Purwaningsih, S.Kep., Ns., M.Sc</b><span>Wakil Ketua HIPPII DIY</span></div></div>
+      <div class="person"><button class="av" data-p="ad" style="background:#4F6BFF" title="Klik untuk unggah foto" aria-label="Foto Alexander Dadi Rahmadi, S.Kep., Ns"><span class="ini">AD</span><span class="cam" aria-hidden="true">📷</span></button><div class="pinfo"><b>Alexander Dadi Rahmadi, S.Kep., Ns</b><span>Wakil Ketua Bidang Hukum, Organisasi &amp; Kaderisasi</span></div></div>
+      <div class="person"><button class="av" data-p="is" style="background:#14B8A6" title="Klik untuk unggah foto" aria-label="Foto Istiqomah, S.Kep., Ns., M.Sc."><span class="ini">IS</span><span class="cam" aria-hidden="true">📷</span></button><div class="pinfo"><b>Istiqomah, S.Kep., Ns., M.Sc.</b><span>Wakil Ketua Bidang Pelayanan &amp; Kesejahteraan</span></div></div>
+    </div></div>
   </div>
 </section>
+</header>
+
+
+</div>
 
 <div class="tools">
   <div class="wrap">
     <div class="trow">
       <label class="search" for="q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="Cari standar atau dokumen: ICRA, linen, outbreak…" autocomplete="off"></label>
-      <span class="stat" id="stat"></span><span class="off" id="off"></span>
-      <button class="tbtn" id="themeBtn" aria-expanded="false" aria-controls="themePop">🎨 Tema</button>
-      <a class="gdrive" href="https://drive.google.com/drive/folders/14Nsg7YrYCobSfl-5P9xAQwrmRk4RcjP8?usp=sharing" target="_blank" rel="noopener">Folder Drive ↗</a>
-      <button class="zip present-btn" id="present">▶ Mode presentasi</button><button class="zip" id="zipreal" hidden>⬇ Unduh semua (ZIP)</button><button class="zip inst" id="install" hidden>⤓ Instal aplikasi</button>
+      <button class="zip present-btn" id="present">▶ <span class="lw2">Mode </span>presentasi</button>
+      <button class="tbtn menub" id="menuBtn" aria-expanded="false" aria-controls="menu"><span class="hb" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
     </div>
     <div class="chips" id="chips"></div>
-    <div class="tpop" id="themePop" hidden role="dialog" aria-label="Pilih gaya tampilan"><h4>Gaya tampilan</h4><div id="themeOpts" style="display:grid;gap:8px"></div></div>
   </div>
 </div>
 
 <main class="wrap">
+  <div class="msesi"><span class="lbl2">Materi diskusi</span><div class="row" id="sesi"></div></div>
   <div class="listhead"><h2 id="lh">Semua standar</h2><p id="lsub">Klik standar untuk melihat contoh dokumen, elemen penilaian, dan tips telusur.</p></div>
   <div class="cards" id="cards"></div>
 </main>
 
 <footer>
-  <div class="wrap">
-    <p><b>Sumber standar:</b> KMK HK.01.07/MENKES/1596/2024 tentang Standar Akreditasi Rumah Sakit (pengganti KMK 1128/2022) dan Instrumen Survei Akreditasi Rumah Sakit (Kepdirjen Yankes HK.02.02/D/47104/2024, 30 Desember 2024), Bab PPI. Elemen penilaian, cara pembuktian (R/D/W/O/S), kelengkapan bukti, skoring, dan sasaran wawancara mengikuti instrumen 2024; maksud dan tujuan diringkas untuk bahan diskusi.</p>
-    <p><b>Contoh dokumen</b> berasal dari folder "Contoh dokument" dan bisa diunduh dalam format aslinya. Spasi antarkata dan lebar kolom tabel sudah dirapikan. Sesuaikan dengan regulasi dan kondisi rumah sakit masing-masing.</p>
-    <p>Dokumen yang ditambahkan lewat "Dokumen milik RS" hanya tersimpan di browser perangkat ini.</p>
-  </div>
+  <div class="wrap"><p>Rumah HIJO · Ruang Cerita HIPPII JOGJA · Minggu, 18 Oktober 2026 · Dasar hukum, unduhan, dan pengaturan ada di <button class="flink" id="footMenu">☰ Menu</button></p></div>
 </footer>
 
 <div class="scrim" id="scrim" hidden></div>
@@ -557,6 +688,40 @@ html[data-style="malam"] .upform .acts .go{background:#EEF0FF;color:#12152F}
   <div class="dbody" id="dbody"></div>
 </aside>
 
+<div class="mscrim" id="mscrim" hidden></div>
+<aside class="menu" id="menu" hidden role="dialog" aria-modal="true" aria-labelledby="mtitle">
+  <div class="mtop"><b id="mtitle">Menu</b><button class="ib" id="mclose" aria-label="Tutup menu">✕</button></div>
+  <div class="mbody">
+    <section><h4>Presentasi</h4>
+      <button class="mi" id="mPresent"><span class="ic">▶</span><span><b>Mode presentasi</b><small>Tayangkan standar satu per satu</small></span></button>
+      <button class="mi" id="mFull"><span class="ic">⛶</span><span><b id="mFullT">Layar penuh</b><small>Sembunyikan bilah browser</small></span></button>
+      <button class="mi" id="mQR"><span class="ic">▦</span><span><b>QR code untuk peserta</b><small>Peserta memindai lalu membuka aplikasi di HP</small></span></button>
+      <details class="mkeys"><summary class="mi"><span class="ic">⌨</span><span><b>Tombol pintasan</b><small>Keyboard dan clicker saat presentasi</small></span></summary>
+        <table><tr><td><kbd>→</kbd> <kbd>←</kbd></td><td>Standar / dokumen berikutnya, sebelumnya</td></tr><tr><td><kbd>L</kbd></td><td>Laser pointer</td></tr><tr><td><kbd>S</kbd></td><td>Stabilo / coret (warna: <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>)</td></tr><tr><td><kbd>E</kbd></td><td>Hapus coretan</td></tr><tr><td><kbd>B</kbd> / <kbd>W</kbd></td><td>Layar hitam / putih</td></tr><tr><td><kbd>+</kbd> <kbd>−</kbd> <kbd>0</kbd></td><td>Zoom dokumen</td></tr><tr><td><kbd>Esc</kbd></td><td>Matikan alat, lalu tutup</td></tr></table>
+      </details>
+    </section>
+    <section><h4>Dokumen</h4>
+      <a class="mi" href="https://drive.google.com/drive/folders/14Nsg7YrYCobSfl-5P9xAQwrmRk4RcjP8?usp=sharing" target="_blank" rel="noopener"><span class="ic">📁</span><span><b>Folder Google Drive ↗</b><small>Folder sumber contoh dokumen</small></span></a>
+      <button class="mi" id="zipreal" hidden><span class="ic">⬇</span><span><b>Unduh semua (ZIP)</b><small>Seluruh contoh dokumen dalam format asli</small></span></button><button class="mi" id="install" hidden><span class="ic">⤓</span><span><b>Instal aplikasi</b><small>Pasang di HP atau laptop, bisa dipakai offline</small></span></button><span class="off" id="off"></span>
+    </section>
+    <section><h4>Tampilan</h4>
+      <div id="themeOpts" class="mthemes"></div>
+      <p class="mnote">Logo HIPPII, foto, serta nama pemberi sambutan diatur dengan mengklik langsung di halaman depan.</p>
+    </section>
+    <section><h4>Dasar hukum</h4>
+      <ol class="law">
+        <li><b>KMK HK.01.07/MENKES/1596/2024</b> tentang Standar Akreditasi Rumah Sakit, ditetapkan 4 Oktober 2024. Mencabut KMK HK.01.07/MENKES/1128/2022.</li>
+        <li><b>Kepdirjen Yankes HK.02.02/D/47104/2024</b> tentang Instrumen Survei Akreditasi Rumah Sakit, ditetapkan 30 Desember 2024.</li>
+      </ol>
+      <p class="mnote">Bab PPI: 13 fokus (a–m), 19 standar, 62 elemen penilaian. Rumusan EP, cara pembuktian (R/D/W/O/S), kelengkapan bukti, skoring, dan sasaran wawancara mengikuti instrumen 2024. Maksud dan tujuan diringkas untuk bahan diskusi.</p>
+    </section>
+    <section><h4>Tentang</h4>
+      <p class="mnote"><b>Rumah HIJO</b> (Ruang Cerita HIPPII JOGJA) · Sharing dan Diskusi Standar Akreditasi PPI · Minggu, 18 Oktober 2026, 08.00–12.00 WIB · Auditorium RS Panti Rapih.</p>
+      <p class="mnote">Contoh dokumen berasal dari folder Drive di atas; spasi dan tabel sudah dirapikan. Sesuaikan dengan regulasi dan kondisi rumah sakit masing-masing.</p>
+    </section>
+  </div>
+</aside>
+<div class="qrov" id="qrov" hidden role="dialog" aria-modal="true" aria-label="QR code aplikasi"><div class="qrbox"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACNUlEQVR42u2bO47jMBBEXy8FOJQAHWCOIt5sriYexTcQQwEUagNS8oSTLLaDZmDYVkXVqP4UWyZ+ecoffn0CGtCA/oFq42Su+6P/N3E/moIsD1CkI0mSxHaAdpKAJJglNkkdsgdZTqBDPXPDvo/LYG5AnejKy0GWT6h2gO2AEbIgyyu0vkb+K2YWZHmFSmojE+Zqph3QXidglrregqz/D52A69ZRXRuQmm3H2mw7Vij9WQqynERr/gzIp6l8ndYjWJaEgix/HTzbkcSmNn6O7Pg077Oig/cSLRiBUkP7rB68Ebd5RDCi5aRupWbUVQZJBoaolwlAJb9kUbf8aKsrqvXUByTdLaLuJBiZ0Be0vmT5SYzFpu5lWOay4WoEWW60RVIX2P4UqqhbHqF1gu24zL7fr54JLc+n/TCiyhJkuergn279cTU+HWPULU/Qy7TfNcoySVCn3nRY/rjxQZaLuvV0fYxJuHvwz8Tcx6/Qlot5q7uD1wSAbW9DVID5NMpyiLLEvOWoJ+xexugJpZ/fiLrlTFvDxtjefcpqz7UxQGrjcjLI8lK3hoPL7RgeMFyNY6xphLa87TzNDcqSZJnUk6BlLovbSEeZkNSHKwNQyQbl6zS2Y336jSPI8hItsB6yuqpfG1OnbsSPWNapBVneoM+S0/ZcSY50GGQ50tY4dUFwmqBByal1p4O6Bll429X9LOx2ld0GYsxbjrT12Xlaut9u23tCJYOKRd3yA7V4IyigAf0n0L/BuLe6TMhoYQAAAABJRU5ErkJggg==" alt="QR code eko1985.github.io/rumahhijo" width="330" height="330"><b>Pindai untuk membuka Rumah HIJO</b><span>eko1985.github.io/rumahhijo</span><button id="qrclose">Tutup</button></div></div>
 <div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
 <div class="help" id="help" hidden role="dialog" aria-modal="true" aria-labelledby="helpt"><div class="box"><h3 id="helpt">Instal Rumah HIJO</h3><div id="helpbody"></div><button id="helpok">Mengerti</button></div></div>
 <div class="pres" id="pres" hidden role="dialog" aria-modal="true" aria-label="Mode presentasi">
@@ -642,9 +807,11 @@ let fGroup=null,fSesi=null,query="",openIdx=-1,lastFocus=null;
 
 /* hero */
 $("#hijo").innerHTML="HIJO".split("").map((c,i)=>`<span style="color:${["#16A866","#FF8A00","#FF4D5E","#4F6BFF"][i]}">${c}</span>`).join("");
-$("#mosaic").innerHTML=GROUPS.map(([l,t])=>`<button class="tile" data-g="${l}" style="background:${GC[l]};color:${txtOn(GC[l])}" aria-label="Fokus ${l}: ${esc(t)}"><span class="L">${l}</span><span class="T">${esc(t)}</span></button>`).join("")
-  +`<div class="tile info"><span class="L">${STD.length}</span><span class="T">standar</span></div><div class="tile info"><span class="L">${STD.reduce((a,s)=>a+s.ep.length,0)}</span><span class="T">elemen penilaian</span></div><div class="tile info"><span class="L" id="docCount">${Object.keys(REAL).length}</span><span class="T">contoh dokumen</span></div>`;
+function tilePPI(g){const ids=STD.filter(s=>s.g===g).map(s=>s.id.replace("PPI ",""));return "PPI "+(ids.length>1?ids[0]+"–"+ids[ids.length-1]:ids[0])}
+$("#mosaic").innerHTML=GROUPS.map(([l,t])=>`<button class="tile${l==="M"?" wide":""}" data-g="${l}" style="background:${GC[l]};color:${txtOn(GC[l])}" aria-label="Fokus ${l}: ${esc(t)}"><span class="hd"><span class="L">${l}</span><span class="P">${tilePPI(l)}</span></span><span class="T">${esc(t)}</span></button>`).join("")
+  ;
 $("#mosaic").addEventListener("click",e=>{const t=e.target.closest(".tile[data-g]");if(!t)return;fGroup=t.dataset.g;fSesi=null;render();jump()});
+$("#stat").onclick=()=>jump();
 $("#sesi").innerHTML=SESI.map(s=>`<button class="sbtn" data-s="${s.n}" aria-pressed="false"><b>${s.n}</b>${esc(s.t.replace(" dalam Standar Akreditasi","").replace(" saat Akreditasi",""))}</button>`).join("");
 $("#sesi").addEventListener("click",e=>{const b=e.target.closest(".sbtn");if(!b)return;const n=+b.dataset.s;fSesi=fSesi===n?null:n;fGroup=null;render();jump()});
 function jump(){document.querySelector(".tools").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"})}
@@ -672,7 +839,7 @@ function render(){
       <span class="stack">${d.length?`<span class="thumbs">${d.slice(0,3).map(x=>x.orig?(k=>`<img src="real/${k}/thumb.webp" alt="" loading="lazy" decoding="async" width="46" height="62">`)(x.orig):`<span class="ph" style="background:${EXTC[x.ext]||"#6B7280"}">${extLbl(x.ext)}</span>`).join("")}</span><span class="badge">${d.length} contoh${d.some(x=>x.up||x.rev)?" · ✎":""}</span>`:`<span class="badge none">Belum ada contoh</span>`}<span class="ep">${s.ep.length} EP</span></span></button>`}).join("")
     :`<div class="empty">Tidak ada standar yang cocok. Coba kata kunci lain atau pilih "Semua".</div>`;
 }
-function updateCounts(){const n=Object.keys(REAL).length+UP.filter(u=>u.kind==="add").length;$("#stat").innerHTML=`<b>${STD.length}</b>standar · <b>${n}</b>dokumen`;const dc=$("#docCount");if(dc)dc.textContent=n}
+function updateCounts(){const n=Object.keys(REAL).length+UP.filter(u=>u.kind==="add").length;$("#stat").innerHTML=`<b>${STD.length}</b> standar · <b>${STD.reduce((a,s)=>a+s.ep.length,0)}</b> elemen penilaian · <b>${n}</b> contoh dokumen<span class="go">Lihat standar ↓</span>`}
 
 /* preload pages of a standard's documents (makes the viewer instant) */
 const warmed=new Set();
@@ -821,7 +988,8 @@ $("#pmain").addEventListener("click",e=>{const d=e.target.closest(".sl-doc");if(
 document.addEventListener("keydown",e=>{
   const inInput=/INPUT|TEXTAREA/.test(document.activeElement.tagName);
   const nextK=["ArrowRight","PageDown"].includes(e.key),prevK=["ArrowLeft","PageUp"].includes(e.key);
-  if(!$("#themePop").hidden&&e.key==="Escape"){toggleTheme(false);return}
+  if(!$("#qrov").hidden&&e.key==="Escape"){$("#qrov").hidden=true;return}
+  if(!$("#menu").hidden){if(e.key==="Escape")closeMenu();return}
   if(!$("#viewer").hidden){
     if(e.key==="Escape"){closeViewer();return}
     if(inInput)return;
@@ -901,6 +1069,35 @@ document.addEventListener("keydown",e=>{
   else if(PT.mode==="ink"&&["1","2","3"].includes(k)){const b=document.querySelectorAll(".pc")[+k-1];b&&b.click()}
 },true);
 
+/* ===== sampul pas satu layar ===== */
+function fitCover(){
+  const cv=document.querySelector(".cover"),w=document.querySelector(".cover .hero>.wrap");if(!cv||!w)return;
+  let H=window.innerHeight;
+  try{if(window.top!==window&&screen.availHeight&&H>screen.availHeight*0.95)H=Math.round(screen.availHeight*0.78)}catch(e){}
+  document.documentElement.style.setProperty("--vh",(H/100)+"px");
+  const on=matchMedia("(min-width:901px)").matches&&H>=420;
+  if(!on){cv.style.removeProperty("--H");w.style.zoom="";return}
+  cv.style.setProperty("--H",H+"px");w.style.zoom="1";
+  const avail=w.clientHeight,need=w.scrollHeight;
+  if(need>avail+1)w.style.zoom=String(Math.max(.55,(avail-4)/need));
+}
+addEventListener("resize",fitCover);fitCover();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitCover);
+setTimeout(fitCover,800);
+
+/* ===== MENU ===== */
+let menuReturn=null;
+function openMenu(){menuReturn=document.activeElement;$("#menu").hidden=false;$("#mscrim").hidden=false;$("#menuBtn").setAttribute("aria-expanded","true");document.body.style.overflow="hidden";syncFull();$("#mclose").focus()}
+function closeMenu(){if($("#menu").hidden)return;$("#menu").hidden=true;$("#mscrim").hidden=true;$("#menuBtn").setAttribute("aria-expanded","false");if($("#drawer").hidden&&$("#pres").hidden)document.body.style.overflow="";menuReturn&&menuReturn.focus&&menuReturn.focus()}
+function syncFull(){$("#mFullT").textContent=document.fullscreenElement?"Keluar layar penuh":"Layar penuh"}
+$("#menuBtn").onclick=openMenu;$("#footMenu").onclick=openMenu;$("#mclose").onclick=closeMenu;$("#mscrim").onclick=closeMenu;
+$("#mPresent").onclick=()=>{closeMenu();startPresent(null)};
+$("#mFull").onclick=()=>{const el=document.documentElement;if(document.fullscreenElement){document.exitFullscreen&&document.exitFullscreen().catch(()=>{})}else if(el.requestFullscreen){el.requestFullscreen().catch(()=>toast("Layar penuh tidak tersedia di sini"))}else toast("Layar penuh tidak tersedia di sini")};
+document.addEventListener("fullscreenchange",syncFull);
+$("#mQR").onclick=()=>{closeMenu();$("#qrov").hidden=false;$("#qrclose").focus()};
+$("#qrclose").onclick=()=>{$("#qrov").hidden=true};
+$("#qrov").addEventListener("click",e=>{if(!e.target.closest(".qrbox"))$("#qrov").hidden=true});
+
 /* ===== GAYA TAMPILAN ===== */
 const STYLES=[
   {k:"ceria",n:"Ceria",d:"Krem pastel dengan gelembung warna-warni. Hangat dan ramah.",sw:["#FFF4E6","#FFC9DA","#FFE69A","#FF5A4E"],tc:"#FFB547"},
@@ -914,10 +1111,7 @@ function setStyle(k,save){
   if(save)try{localStorage.setItem("rh-style",k)}catch(e){}
 }
 $("#themeOpts").innerHTML=STYLES.map(x=>`<button class="topt" data-k="${x.k}" aria-pressed="false"><span class="sw">${x.sw.map(c=>`<i style="background:${c}"></i>`).join("")}</span><span><b>${x.n}</b><small>${x.d}</small></span></button>`).join("");
-function toggleTheme(open){const p=$("#themePop");p.hidden=!open;$("#themeBtn").setAttribute("aria-expanded",String(open));if(open){const a=p.querySelector('[aria-pressed="true"]')||p.querySelector(".topt");a&&a.focus()}}
-$("#themeBtn").onclick=e=>{e.stopPropagation();toggleTheme($("#themePop").hidden)};
 $("#themeOpts").addEventListener("click",e=>{const b=e.target.closest(".topt");if(!b)return;setStyle(b.dataset.k,true);toast(`Gaya "${STYLES.find(x=>x.k===b.dataset.k).n}" dipakai`)});
-document.addEventListener("click",e=>{if(!$("#themePop").hidden&&!e.target.closest("#themePop")&&!e.target.closest("#themeBtn"))toggleTheme(false)});
 setStyle(curStyle(),false);
 
 /* ===== TOAST ===== */
@@ -1072,13 +1266,40 @@ document.addEventListener("click",e=>{
   fotoMenu.style.left=Math.min(r.left,innerWidth-220)+"px";fotoMenu.style.top=(r.bottom+8)+"px";document.body.appendChild(fotoMenu);
   fotoMenu.onclick=ev=>{const a=ev.target.closest("button")?.dataset.a;closeFotoMenu();if(a==="ganti")pickFoto(id);else if(a==="hapus")delFoto(id)};
 });
-addEventListener("scroll",closeFotoMenu,{passive:true});
+addEventListener("scroll",()=>{if(fotoMenu&&!fotoMenu.classList.contains("fedit"))closeFotoMenu()},{passive:true});
+/* nama & jabatan pemberi sambutan */
+const INFO_COL="rh/docs/info";let infoShared={};
+function infoLocal(id){try{return JSON.parse(localStorage.getItem("rh-info-"+id)||"null")}catch(e){return null}}
+function infoOf(id){return infoLocal(id)||infoShared[id]||null}
+function paintInfo(){document.querySelectorAll(".who[data-info]").forEach(b=>{const v=infoOf(b.dataset.info);const n=v&&v.n,j=v&&v.j;
+  b.classList.toggle("kosong",!n);b.querySelector("b").textContent=n||("Pemberi sambutan "+b.dataset.info.slice(2));b.querySelector("span").textContent=n?(j||""):"Klik untuk isi nama & jabatan";
+  const av=document.querySelector(`button.av[data-p="${b.dataset.info}"] .ini`);if(av)av.textContent=n?n.replace(/^(dr|drg|ns|prof|h|hj)\.?\s+/i,"").split(/[\s,]+/).filter(w=>/^[A-Za-z]/.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join(""):"👤"})}
+async function setInfo(id,v){
+  const empty=!v.n&&!v.j;let ok=false;
+  if(shared.assets&&shared.db){try{const c=shared.db.collection(INFO_COL).doc(id);if(empty)await c.delete();else await c.set({...v,at:Date.now()});if(empty)delete infoShared[id];else infoShared[id]=v;ok=true;try{localStorage.removeItem("rh-info-"+id)}catch(e){}}catch(e){}}
+  if(!ok){try{if(empty)localStorage.removeItem("rh-info-"+id);else localStorage.setItem("rh-info-"+id,JSON.stringify(v))}catch(e){toast("Tidak bisa menyimpan di perangkat ini");return}}
+  paintInfo();toast(empty?"Nama dikosongkan":"Nama dan jabatan disimpan");
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".who[data-info]");if(!b)return;e.preventDefault();e.stopPropagation();closeFotoMenu();
+  const id=b.dataset.info,v=infoOf(id)||{n:"",j:""},r=b.getBoundingClientRect();
+  fotoMenu=document.createElement("div");fotoMenu.className="fmenu fedit";
+  fotoMenu.innerHTML=`<label>Nama<input id="feN" type="text" placeholder="Misal: dr. Nama Lengkap, Sp.PK"></label><label>Jabatan<input id="feJ" type="text" placeholder="Misal: Ketua HIPPII DIY"></label><div class="acts"><button class="no">Batal</button><button class="go">Simpan</button></div>`;
+  fotoMenu.style.left=Math.max(8,Math.min(r.left,innerWidth-290))+"px";fotoMenu.style.top=Math.min(r.bottom+8,innerHeight-210)+"px";document.body.appendChild(fotoMenu);
+  const N=fotoMenu.querySelector("#feN"),J=fotoMenu.querySelector("#feJ");N.value=v.n||"";J.value=v.j||"";N.focus();
+  const save=()=>{const nv={n:N.value.trim(),j:J.value.trim()};closeFotoMenu();setInfo(id,nv)};
+  fotoMenu.querySelector(".go").onclick=save;fotoMenu.querySelector(".no").onclick=closeFotoMenu;
+  fotoMenu.addEventListener("keydown",ev=>{if(ev.key==="Enter"){ev.preventDefault();save()}if(ev.key==="Escape"){ev.stopPropagation();closeFotoMenu()}});
+},true);
+paintInfo();
+
 paintFoto();
 
 /* storage: bersama (claude.ai) */
 if(window.claude&&claude.use){
   Promise.all([claude.use("assets").catch(()=>null),claude.use("db").catch(()=>null)]).then(([a,d])=>{
     shared.assets=a;shared.db=d;
+    if(d){try{d.collection(INFO_COL).onSnapshot(snap=>{infoShared={};snap.docs.forEach(x=>{const v=x.data();if(v&&(v.n||v.j))infoShared[x.id]={n:v.n||"",j:v.j||""}});paintInfo()},()=>{})}catch(e){}}
     if(d){try{d.collection(FOTO_COL).onSnapshot(snap=>{fotoShared={};snap.docs.forEach(x=>{const v=x.data();if(v&&v.d)fotoShared[x.id]=v.d});paintFoto()},()=>{})}catch(e){}}
     if(d){try{d.collection(SHARED_COL).onSnapshot(snap=>{sharedRecs=snap.docs.map(x=>({...x.data(),id:x.id,where:"shared"}));mergeUP()},()=>{})}catch(e){}}
     if(upState&&$("#upSlot"))refreshDocs();
